@@ -3,109 +3,133 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tambola Caller</title>
+    <title>Cherry Blossom Tea Party</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="page-shell">
-      <header class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">Custom Tambola Caller</p>
-          <h1>Run the game from your phone without losing the trail.</h1>
-          <p class="lede">
-            Call numbers from a hidden winner-safe order, keep the running history visible, and use your ticket sheet offline without exposing the prize logic on screen.
-          </p>
-        </div>
-        <div class="status-strip">
-          <div class="status-pill">
-            <span class="status-label">Sequence</span>
-            <strong id="mode-label">Stored order</strong>
-          </div>
-          <div class="status-pill">
-            <span class="status-label">Called</span>
-            <strong id="called-count">0 / 80</strong>
-          </div>
-          <div class="status-pill">
-            <span class="status-label">Remaining</span>
-            <strong id="remaining-count">80</strong>
-          </div>
-        </div>
+      <header class="site-header">
+        <a class="brand-mark" href="./index.html">Cherry Blossom Tea Party</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="nav-link is-active" href="./index.html">Home</a>
+          <a class="nav-link" href="./lunch.html">Lunch</a>
+          <a class="nav-link" href="./paint.html">Paint</a>
+          <a class="nav-link" href="./tambola.html">Tambola</a>
+        </nav>
       </header>
 
-      <main class="dashboard">
-        <section class="panel caller-panel">
-          <div class="panel-header">
-            <div>
-              <p class="panel-kicker">Live Draw</p>
-              <h2>Caller board</h2>
-            </div>
-            <div class="panel-actions">
-              <button id="new-sequence-button" class="secondary-button" type="button">New Game Sequence</button>
-              <button id="reset-button" class="ghost-button" type="button">Reset game</button>
-            </div>
-          </div>
-
-          <div class="current-call-card" id="current-call-card">
-            <span class="current-category" id="current-category">Waiting</span>
-            <div class="current-number" id="current-number">--</div>
-            <div class="current-name" id="current-name">Press Next Number to begin</div>
-          </div>
-
-          <div class="button-row">
-            <button id="undo-button" class="secondary-button" type="button">Undo</button>
-            <button id="next-button" class="primary-button" type="button">Next Number</button>
-          </div>
-
-          <div class="sequence-card">
-            <div class="sequence-topline">
-              <div>
-                <p class="panel-kicker">Sequence Source</p>
-                <h3>Private stored order</h3>
-              </div>
-            </div>
-
-            <div class="button-row compact-row">
-              <button id="copy-sequence-button" class="secondary-button" type="button">Copy Full Sequence</button>
-              <button id="copy-called-button" class="ghost-button" type="button">Copy Called List</button>
-            </div>
-            <p class="helper-text" id="sequence-feedback">
-              Stored caller order derived from <strong id="sequence-source-label">final_tambola_call_sequence.xlsx</strong>. Tap <strong>New Game Sequence</strong> to switch to a fresh hidden order.
+      <main class="site-stack">
+        <section class="hero hero-home">
+          <div class="hero-copy">
+            <p class="eyebrow">Party Plan</p>
+            <h1>Cherry blossoms, lunch, painting, and one very competitive Tambola round.</h1>
+            <p class="lede">
+              Everything for the afternoon is here: where to go, where to park, and when each activity begins.
             </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="https://maps.app.goo.gl/cwB1JuUXugHmBLp19" target="_blank" rel="noreferrer">Open Club House</a>
+              <a class="ghost-link" href="./tambola.html">Open Tambola Caller</a>
+            </div>
+          </div>
+
+          <aside class="hero-note">
+            <p class="panel-kicker">Quick Timeline</p>
+            <ol class="timeline-preview">
+              <li><strong>1:30 PM to 2:30 PM</strong><span>Lunch</span></li>
+              <li><strong>2:30 PM</strong><span>Cherry blossom painting</span></li>
+              <li><strong>3:30 PM</strong><span>Tambola</span></li>
+              <li><strong>4:30 PM</strong><span>Pass the Paint on a shared canvas</span></li>
+            </ol>
+          </aside>
+        </section>
+
+        <section class="panel section-panel">
+          <div class="section-heading">
+            <div>
+              <p class="panel-kicker">Schedule</p>
+              <h2>Afternoon flow</h2>
+            </div>
+            <p class="section-copy">Keep this page open if you want the whole plan in one place.</p>
+          </div>
+          <div class="schedule-grid">
+            <article class="schedule-card">
+              <span class="time-chip">1:30 PM to 2:30 PM</span>
+              <h3>Lunch service</h3>
+              <p>Start with savory snacks, desserts, and drinks from the tea party menu.</p>
+              <a class="text-link" href="./lunch.html">See lunch menu</a>
+            </article>
+            <article class="schedule-card">
+              <span class="time-chip">2:30 PM</span>
+              <h3>Cherry blossom paint session</h3>
+              <p>Individual painting time inspired by soft pink branches, petals, and spring skies.</p>
+              <a class="text-link" href="./paint.html">See paint details</a>
+            </article>
+            <article class="schedule-card">
+              <span class="time-chip">3:30 PM</span>
+              <h3>Tambola</h3>
+              <p>The live caller board is on its own page so it is easy to run from a phone.</p>
+              <a class="text-link" href="./tambola.html">Open caller board</a>
+            </article>
+            <article class="schedule-card">
+              <span class="time-chip">4:30 PM</span>
+              <h3>Pass the Paint</h3>
+              <p>One shared canvas moves from person to person, with each guest adding color before passing it on.</p>
+              <a class="text-link" href="./paint.html#pass-the-paint">Jump to the game</a>
+            </article>
           </div>
         </section>
 
-        <section class="panel called-panel">
-          <div class="panel-header">
-            <div>
-              <p class="panel-kicker">Called So Far</p>
-              <h2>Grouped by category</h2>
-            </div>
-          </div>
-          <div class="category-columns" id="called-by-category"></div>
+        <section class="details-grid">
+          <article class="panel detail-panel">
+            <p class="panel-kicker">Location</p>
+            <h2>Club house</h2>
+            <p class="detail-copy">
+              The party is at the club house. Use the map link below for the exact destination.
+            </p>
+            <a class="primary-link block-link" href="https://maps.app.goo.gl/cwB1JuUXugHmBLp19" target="_blank" rel="noreferrer">Open party location</a>
+          </article>
+
+          <article class="panel detail-panel">
+            <p class="panel-kicker">Parking</p>
+            <h2>Guest parking or street parking</h2>
+            <p class="detail-copy">
+              Parking is limited, so plan a few extra minutes. Any guest parking is good, and street parking is fine too.
+            </p>
+            <ul class="map-list">
+              <li><a class="text-link" href="https://maps.app.goo.gl/hsxaKrqhYpjhSTUu8" target="_blank" rel="noreferrer">Guest parking option 1</a></li>
+              <li><a class="text-link" href="https://maps.app.goo.gl/6qeYK82sQoQtZ9HP8" target="_blank" rel="noreferrer">Guest parking option 2</a></li>
+              <li>There are a few more guest spots nearby if those fill up.</li>
+              <li>Street parking is also okay.</li>
+            </ul>
+          </article>
         </section>
 
-        <section class="panel board-panel">
-          <div class="panel-header">
+        <section class="panel section-panel">
+          <div class="section-heading">
             <div>
-              <p class="panel-kicker">Master Board</p>
-              <h2>All 80 numbers</h2>
+              <p class="panel-kicker">Activity Pages</p>
+              <h2>Open the right page at the right time</h2>
             </div>
           </div>
-          <div class="number-board" id="number-board"></div>
-        </section>
-
-        <section class="panel history-panel">
-          <div class="panel-header">
-            <div>
-              <p class="panel-kicker">Call History</p>
-              <h2>Most recent first</h2>
-            </div>
+          <div class="link-card-grid">
+            <a class="link-card" href="./lunch.html">
+              <span class="link-card-kicker">1:30 PM</span>
+              <strong>Lunch Page</strong>
+              <span>Menu poster and written menu list.</span>
+            </a>
+            <a class="link-card" href="./paint.html">
+              <span class="link-card-kicker">2:30 PM and 4:30 PM</span>
+              <strong>Paint Page</strong>
+              <span>Cherry blossom painting and Pass the Paint details.</span>
+            </a>
+            <a class="link-card" href="./tambola.html">
+              <span class="link-card-kicker">3:30 PM</span>
+              <strong>Tambola Page</strong>
+              <span>The caller board with hidden sequence rotation.</span>
+            </a>
           </div>
-          <ol class="history-list" id="history-list"></ol>
         </section>
       </main>
     </div>
-
-    <script type="module" src="./app.js"></script>
   </body>
 </html>
