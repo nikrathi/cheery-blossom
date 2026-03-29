@@ -1,6 +1,5 @@
-const storageKey = "tambola-caller-state-v5";
-const accessKey = "tambola-access-v3";
-const accessCode = "awesome";
+const accessKey = "tambola-host-access-v1";
+const pollIntervalMs = 2000;
 const categoryClasses = {
   "Food Lovers": "category-food",
   "Sakura Vibes": "category-sakura",
@@ -39,11 +38,10 @@ const elements = {
 
 let appData;
 let numberDirectory;
-let sequencePool;
-let state;
-localStorage.removeItem("tambola-access-v1");
-localStorage.removeItem("tambola-access-v2");
-let hostUnlocked = sessionStorage.getItem(accessKey) === "granted";
+let currentState;
+let hostAccessCode = sessionStorage.getItem(accessKey) || "";
+let pollHandle;
+let refreshInFlight = false;
 
 if (elements.modeLabel) {
   initializeTambola().catch((error) => {
@@ -60,28 +58,29 @@ async function initializeTambola() {
     return response.json();
   });
 
-  if (!Array.isArray(appData.sequencePool) || !appData.sequencePool.length) {
-    throw new Error("No hidden sequence pool was found.");
-  }
-
   numberDirectory = new Map(appData.numberDirectory.map((entry) => [entry.number, entry]));
-  sequencePool = appData.sequencePool.map((entry) => [...entry.sequence]);
-  state = loadState();
-
   bindAccessEvents();
   bindAppEvents();
   hydrateControls();
-  renderAll();
+  await refreshState();
+  pollHandle = window.setInterval(() => {
+    refreshState().catch((error) => console.error(error));
+  }, pollIntervalMs);
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      refreshState().catch((error) => console.error(error));
+    }
+  });
 }
 
 function bindAccessEvents() {
-  accessElements.form?.addEventListener("submit", (event) => {
+  accessElements.form?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    unlockHostControls();
+    await unlockHostControls();
   });
 
   accessElements.lockButton?.addEventListener("click", () => {
-    hostUnlocked = false;
+    hostAccessCode = "";
     sessionStorage.removeItem(accessKey);
     renderAccessState();
     renderAll();
@@ -89,108 +88,83 @@ function bindAccessEvents() {
   });
 }
 
-function unlockHostControls() {
-  const enteredCode = accessElements.input?.value.trim().toLowerCase();
-  if (enteredCode !== accessCode) {
+async function unlockHostControls() {
+  const enteredCode = accessElements.input?.value.trim() || "";
+  if (!enteredCode) {
+    setAccessFeedback("Enter the access code first.", true);
+    return;
+  }
+
+  const response = await fetch("/api/tambola/verify", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify({ accessCode: enteredCode }),
+  });
+
+  if (!response.ok) {
     setAccessFeedback("Incorrect access code. Please try again.", true);
     return;
   }
 
-  hostUnlocked = true;
-  sessionStorage.setItem(accessKey, "granted");
+  hostAccessCode = enteredCode;
+  sessionStorage.setItem(accessKey, enteredCode);
   if (accessElements.input) {
     accessElements.input.value = "";
   }
 
   renderAccessState();
-  renderAll();
+  await refreshState();
   setAccessFeedback("Host controls unlocked on this device.");
 }
 
 function bindAppEvents() {
-  elements.nextButton.addEventListener("click", () => {
-    if (!hostUnlocked) {
-      setAccessFeedback("Enter the code to use host controls.", true);
-      return;
-    }
-
-    const activeSequence = getActiveSequence();
-    if (state.currentIndex >= activeSequence.length - 1) {
-      setFeedback("All numbers in the stored caller order have already been called.", true);
-      return;
-    }
-
-    state.currentIndex += 1;
-    saveState();
-    renderAll();
+  elements.nextButton.addEventListener("click", async () => {
+    await performAction("next");
   });
 
-  elements.newSequenceButton.addEventListener("click", () => {
-    if (!hostUnlocked) {
-      setAccessFeedback("Enter the code to change the hidden sequence.", true);
-      return;
-    }
-
-    if (sequencePool.length < 2) {
-      setFeedback("Only one hidden sequence is available right now.", true);
-      return;
-    }
-
-    const { nextIndex, restartedCycle } = chooseNextSequenceIndex();
-    state.sequenceIndex = nextIndex;
-    state.currentIndex = -1;
-    state.usedSequenceIndices = restartedCycle ? [nextIndex] : [...state.usedSequenceIndices, nextIndex];
-    saveState();
-    renderAll();
-
-    if (restartedCycle) {
-      setFeedback("Loaded a fresh hidden sequence. All stored orders were used once, so a new rotation has started.");
-      return;
-    }
-
-    setFeedback("Loaded a new hidden sequence and reset the board.");
+  elements.newSequenceButton.addEventListener("click", async () => {
+    await performAction("new-sequence");
   });
 
-  elements.undoButton.addEventListener("click", () => {
-    if (!hostUnlocked) {
-      setAccessFeedback("Enter the code to use host controls.", true);
-      return;
-    }
-
-    if (state.currentIndex < 0) {
-      return;
-    }
-
-    state.currentIndex -= 1;
-    saveState();
-    renderAll();
+  elements.undoButton.addEventListener("click", async () => {
+    await performAction("undo");
   });
 
-  elements.resetButton.addEventListener("click", () => {
-    if (!hostUnlocked) {
-      setAccessFeedback("Enter the code to use host controls.", true);
-      return;
-    }
-
-    state.currentIndex = -1;
-    saveState();
-    renderAll();
-    setFeedback("Caller reset. The stored sequence will restart from the first number.");
+  elements.resetButton.addEventListener("click", async () => {
+    await performAction("reset");
   });
 
   elements.copySequenceButton.addEventListener("click", async () => {
-    if (!hostUnlocked) {
+    if (!hostAccessCode) {
       setAccessFeedback("Enter the code to reveal the full sequence.", true);
       return;
     }
 
-    const activeSequence = getActiveSequence();
-    await copyText(activeSequence.join(", "));
+    const response = await fetch("/api/tambola/sequence", {
+      headers: {
+        "x-tambola-access-code": hostAccessCode,
+      },
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      hostAccessCode = "";
+      sessionStorage.removeItem(accessKey);
+      renderAccessState();
+      renderAll();
+      setAccessFeedback("Host access expired. Enter the code again.", true);
+      return;
+    }
+
+    const payload = await response.json();
+    await copyText(payload.sequence.join(", "));
     setFeedback("Copied the full stored sequence.");
   });
 
   elements.copyCalledButton.addEventListener("click", async () => {
-    const calledText = getCalledNumbers()
+    const calledText = (currentState?.calledNumbers || [])
       .map((number) => formatEntry(numberDirectory.get(number)))
       .join("\n");
     await copyText(calledText || "No numbers called yet.");
@@ -198,7 +172,73 @@ function bindAppEvents() {
   });
 }
 
+async function performAction(action) {
+  if (!hostAccessCode) {
+    setAccessFeedback("Enter the code to use host controls.", true);
+    return;
+  }
+
+  const response = await fetch("/api/tambola/action", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify({ action, accessCode: hostAccessCode }),
+  });
+
+  if (!response.ok) {
+    hostAccessCode = "";
+    sessionStorage.removeItem(accessKey);
+    renderAccessState();
+    renderAll();
+    setAccessFeedback("Host access expired. Enter the code again.", true);
+    return;
+  }
+
+  currentState = await response.json();
+  renderAll();
+}
+
+async function refreshState() {
+  if (refreshInFlight) {
+    return;
+  }
+
+  refreshInFlight = true;
+  try {
+    const headers = hostAccessCode
+      ? { "x-tambola-access-code": hostAccessCode }
+      : undefined;
+    const response = await fetch("/api/tambola/state", {
+      headers,
+      cache: "no-store",
+    });
+
+    if (!response.ok) {
+      throw new Error("Unable to refresh Tambola state.");
+    }
+
+    currentState = await response.json();
+    renderAll();
+  } finally {
+    refreshInFlight = false;
+  }
+}
+
+function hydrateControls() {
+  elements.modeLabel.textContent = "Live shared state";
+  elements.sequenceSourceLabel.textContent = appData.sequenceDesignSource;
+  renderAccessState();
+  if (hostAccessCode) {
+    setAccessFeedback("Host controls unlocked on this device.");
+    return;
+  }
+
+  setAccessFeedback("Without the code, this page stays in viewer mode.");
+}
+
 function renderAccessState() {
+  const hostUnlocked = Boolean(hostAccessCode);
   if (accessElements.form) {
     accessElements.form.hidden = hostUnlocked;
   }
@@ -216,114 +256,30 @@ function setAccessFeedback(message, isError = false) {
   accessElements.feedback.classList.toggle("error", isError);
 }
 
-function loadState() {
-  const defaults = { currentIndex: -1, sequenceIndex: 0, usedSequenceIndices: [0] };
-
-  try {
-    const raw = localStorage.getItem(storageKey);
-    if (!raw) {
-      return defaults;
-    }
-
-    const parsed = JSON.parse(raw);
-    const sequenceIndex = Number.isInteger(parsed.sequenceIndex)
-      ? Math.min(Math.max(parsed.sequenceIndex, 0), sequencePool.length - 1)
-      : 0;
-    const activeSequence = sequencePool[sequenceIndex];
-    const currentIndex = Number.isInteger(parsed.currentIndex)
-      ? Math.min(Math.max(parsed.currentIndex, -1), activeSequence.length - 1)
-      : -1;
-    const usedSequenceIndices = Array.isArray(parsed.usedSequenceIndices)
-      ? [...new Set(parsed.usedSequenceIndices.filter((index) => Number.isInteger(index) && index >= 0 && index < sequencePool.length))]
-      : [];
-
-    if (!usedSequenceIndices.includes(sequenceIndex)) {
-      usedSequenceIndices.push(sequenceIndex);
-    }
-
-    return {
-      currentIndex,
-      sequenceIndex,
-      usedSequenceIndices: usedSequenceIndices.length ? usedSequenceIndices : [sequenceIndex],
-    };
-  } catch {
-    return defaults;
-  }
-}
-
-function saveState() {
-  localStorage.setItem(storageKey, JSON.stringify(state));
-}
-
-function hydrateControls() {
-  elements.modeLabel.textContent = "Stored order";
-  elements.sequenceSourceLabel.textContent = appData.sequenceDesignSource;
-  renderAccessState();
-
-  if (hostUnlocked) {
-    setAccessFeedback("Host controls unlocked on this device.");
-    return;
-  }
-
-  setAccessFeedback("Without the code, this page stays in viewer mode.");
-}
-
-function getActiveSequence() {
-  return sequencePool[state.sequenceIndex];
-}
-
-function getCalledNumbers() {
-  const activeSequence = getActiveSequence();
-  return activeSequence.slice(0, state.currentIndex + 1);
-}
-
-function chooseNextSequenceIndex() {
-  const unseenIndexes = sequencePool
-    .map((_, index) => index)
-    .filter((index) => !state.usedSequenceIndices.includes(index));
-
-  if (unseenIndexes.length) {
-    return {
-      nextIndex: unseenIndexes[Math.floor(Math.random() * unseenIndexes.length)],
-      restartedCycle: false,
-    };
-  }
-
-  const freshCycleIndexes = sequencePool
-    .map((_, index) => index)
-    .filter((index) => index !== state.sequenceIndex);
-
-  return {
-    nextIndex: freshCycleIndexes[Math.floor(Math.random() * freshCycleIndexes.length)],
-    restartedCycle: true,
-  };
-}
-
 function renderAll() {
-  const activeSequence = getActiveSequence();
-  const calledNumbers = getCalledNumbers();
+  const calledNumbers = currentState?.calledNumbers || [];
   const calledSet = new Set(calledNumbers);
-  const currentNumber = state.currentIndex >= 0 ? activeSequence[state.currentIndex] : null;
-  const currentEntry = currentNumber ? numberDirectory.get(currentNumber) : null;
+  const currentEntry = currentState?.currentEntry || null;
+  const hostUnlocked = Boolean(hostAccessCode);
 
-  elements.calledCount.textContent = `${calledNumbers.length} / ${activeSequence.length}`;
-  elements.remainingCount.textContent = String(activeSequence.length - calledNumbers.length);
+  elements.calledCount.textContent = `${currentState?.calledCount ?? 0} / ${currentState?.sequenceLength ?? appData.maxNumber}`;
+  elements.remainingCount.textContent = String(currentState?.remainingCount ?? appData.maxNumber);
   elements.currentCategory.textContent = currentEntry?.category || "Waiting";
   elements.currentNumber.textContent = currentEntry?.number ?? "--";
-  elements.currentName.textContent = currentEntry ? currentEntry.name : "Press Next Number to begin";
+  elements.currentName.textContent = currentEntry ? currentEntry.name : "Waiting for the first call";
   elements.currentCallCard.className = `current-call-card ${currentEntry ? categoryClasses[currentEntry.category] : ""}`;
-  elements.nextButton.disabled = !hostUnlocked || state.currentIndex >= activeSequence.length - 1;
-  elements.undoButton.disabled = !hostUnlocked || state.currentIndex < 0;
+
+  elements.nextButton.disabled = !hostUnlocked || (currentState?.calledCount ?? 0) >= (currentState?.sequenceLength ?? 0);
+  elements.undoButton.disabled = !hostUnlocked || (currentState?.calledCount ?? 0) === 0;
   elements.resetButton.disabled = !hostUnlocked;
   elements.newSequenceButton.disabled = !hostUnlocked;
   elements.copySequenceButton.disabled = !hostUnlocked;
 
-  if (state.currentIndex >= 0) {
-    const nextNumber = activeSequence[state.currentIndex + 1];
-    const nextLabel = hostUnlocked && nextNumber ? ` Next in sequence: ${nextNumber}.` : hostUnlocked ? " Sequence complete." : "";
-    setFeedback(`Position ${state.currentIndex + 1} of ${activeSequence.length}.${nextLabel}`);
+  if ((currentState?.calledCount ?? 0) > 0) {
+    const nextLabel = hostUnlocked && currentState?.nextNumber ? ` Next in sequence: ${currentState.nextNumber}.` : "";
+    setFeedback(`Position ${currentState.calledCount} of ${currentState.sequenceLength}.${nextLabel}`);
   } else if (hostUnlocked) {
-    setFeedback(`Host controls unlocked. Ready to start at position 1 of ${activeSequence.length}.`);
+    setFeedback(`Host controls unlocked. Ready to start at position 1 of ${currentState?.sequenceLength ?? appData.maxNumber}.`);
   } else {
     setFeedback("Viewer mode on this device. Current and past calls stay visible, but host controls are locked.");
   }
