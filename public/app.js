@@ -1,5 +1,5 @@
 const storageKey = "tambola-caller-state-v5";
-const accessKey = "tambola-access-v2";
+const accessKey = "tambola-access-v3";
 const accessCode = "awesome";
 const categoryClasses = {
   "Food Lovers": "category-food",
@@ -41,7 +41,9 @@ let appData;
 let numberDirectory;
 let sequencePool;
 let state;
-let hostUnlocked = localStorage.getItem(accessKey) === "granted";
+localStorage.removeItem("tambola-access-v1");
+localStorage.removeItem("tambola-access-v2");
+let hostUnlocked = sessionStorage.getItem(accessKey) === "granted";
 
 if (elements.modeLabel) {
   initializeTambola().catch((error) => {
@@ -80,7 +82,7 @@ function bindAccessEvents() {
 
   accessElements.lockButton?.addEventListener("click", () => {
     hostUnlocked = false;
-    localStorage.removeItem(accessKey);
+    sessionStorage.removeItem(accessKey);
     renderAccessState();
     renderAll();
     setAccessFeedback("Host controls locked on this device.");
@@ -95,7 +97,7 @@ function unlockHostControls() {
   }
 
   hostUnlocked = true;
-  localStorage.setItem(accessKey, "granted");
+  sessionStorage.setItem(accessKey, "granted");
   if (accessElements.input) {
     accessElements.input.value = "";
   }
