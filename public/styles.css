@@ -153,7 +153,7 @@ a {
 }
 
 .hero-home {
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
   align-items: stretch;
 }
 
@@ -166,6 +166,30 @@ a {
 .hero-note {
   position: relative;
   z-index: 1;
+}
+
+.hero-visual-column {
+  display: grid;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-art {
+  margin: 0;
+  min-height: 320px;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 16px 34px rgba(102, 56, 64, 0.14);
+}
+
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transform: scale(1.03);
 }
 
 .hero-note {
@@ -497,6 +521,27 @@ a {
   gap: 18px;
 }
 
+.host-access-card {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(109, 66, 72, 0.08);
+  background: rgba(255, 255, 255, 0.76);
+}
+
+.host-access-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.host-access-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 1.4rem;
+}
+
 .access-title {
   margin: 0;
   font-family: var(--serif);
@@ -508,6 +553,10 @@ a {
 .access-form {
   display: grid;
   gap: 10px;
+}
+
+.access-form-inline {
+  gap: 8px;
 }
 
 .access-label {
@@ -541,6 +590,19 @@ a {
 
 .access-submit {
   flex: 0 0 auto;
+}
+
+.host-unlocked-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.host-status-text {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .tambola-app {
@@ -916,6 +978,10 @@ button:disabled {
     text-align: center;
   }
 
+  .hero-art {
+    min-height: 240px;
+  }
+
   .hero,
   .panel {
     border-radius: 24px;
@@ -933,6 +999,11 @@ button:disabled {
   }
 
   .access-row {
+    flex-direction: column;
+  }
+
+  .host-unlocked-row {
+    align-items: stretch;
     flex-direction: column;
   }
 

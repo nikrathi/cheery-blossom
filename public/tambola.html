@@ -18,124 +18,123 @@
         </nav>
       </header>
 
-      <main class="site-stack">
-        <section class="panel access-panel" id="access-panel">
-          <div class="section-heading">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Custom Tambola Caller</p>
+          <h1>Run the game from your phone without losing the trail.</h1>
+          <p class="lede">
+            The board stays visible for everyone on this device. Only the host controls need the access code.
+          </p>
+        </div>
+        <div class="status-strip">
+          <div class="status-pill">
+            <span class="status-label">Sequence</span>
+            <strong id="mode-label">Stored order</strong>
+          </div>
+          <div class="status-pill">
+            <span class="status-label">Called</span>
+            <strong id="called-count">0 / 80</strong>
+          </div>
+          <div class="status-pill">
+            <span class="status-label">Remaining</span>
+            <strong id="remaining-count">80</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel caller-panel">
+          <div class="panel-header">
             <div>
-              <p class="panel-kicker">Tambola Access</p>
-              <h1 class="access-title">Enter the access code to open the caller board.</h1>
+              <p class="panel-kicker">Live Draw</p>
+              <h2>Caller board</h2>
             </div>
-            <p class="section-copy">This page is protected so the game board stays private until it is time to play.</p>
+            <div class="panel-actions">
+              <button id="new-sequence-button" class="secondary-button" type="button">New Game Sequence</button>
+              <button id="reset-button" class="ghost-button" type="button">Reset game</button>
+            </div>
           </div>
 
-          <form class="access-form" id="access-form">
-            <label class="access-label" for="access-code">Access code</label>
-            <div class="access-row">
-              <input class="access-input" id="access-code" name="access-code" type="password" autocomplete="off" placeholder="Enter code" />
-              <button class="primary-button access-submit" type="submit">Open Tambola</button>
+          <section class="host-access-card" id="host-access-card">
+            <div class="host-access-copy">
+              <p class="panel-kicker">Host Controls</p>
+              <h3 class="host-access-title">Unlock next-number controls on this device.</h3>
             </div>
-          </form>
-          <p class="helper-text" id="access-feedback">Enter the code to view the Tambola caller board.</p>
+
+            <form class="access-form access-form-inline" id="access-form">
+              <label class="access-label" for="access-code">Access code</label>
+              <div class="access-row">
+                <input class="access-input" id="access-code" name="access-code" type="password" autocomplete="off" placeholder="Enter code" />
+                <button class="primary-button access-submit" type="submit">Unlock</button>
+              </div>
+            </form>
+
+            <div class="host-unlocked-row" id="host-unlocked-row" hidden>
+              <p class="host-status-text">Host controls are unlocked on this device.</p>
+              <button id="lock-controls-button" class="ghost-button" type="button">Lock controls</button>
+            </div>
+
+            <p class="helper-text" id="access-feedback">Without the code, this page stays in viewer mode.</p>
+          </section>
+
+          <div class="current-call-card" id="current-call-card">
+            <span class="current-category" id="current-category">Waiting</span>
+            <div class="current-number" id="current-number">--</div>
+            <div class="current-name" id="current-name">Press Next Number to begin</div>
+          </div>
+
+          <div class="button-row">
+            <button id="undo-button" class="secondary-button" type="button">Undo</button>
+            <button id="next-button" class="primary-button" type="button">Next Number</button>
+          </div>
+
+          <div class="sequence-card">
+            <div class="sequence-topline">
+              <div>
+                <p class="panel-kicker">Sequence Source</p>
+                <h3>Private stored order</h3>
+              </div>
+            </div>
+
+            <div class="button-row compact-row">
+              <button id="copy-sequence-button" class="secondary-button" type="button">Copy Full Sequence</button>
+              <button id="copy-called-button" class="ghost-button" type="button">Copy Called List</button>
+            </div>
+            <p class="helper-text" id="sequence-feedback">
+              Stored caller order derived from <strong id="sequence-source-label">final_tambola_call_sequence.xlsx</strong>.
+            </p>
+          </div>
         </section>
 
-        <div class="tambola-app is-hidden" id="tambola-app" hidden>
-          <header class="hero">
-            <div class="hero-copy">
-              <p class="eyebrow">Custom Tambola Caller</p>
-              <h1>Run the game from your phone without losing the trail.</h1>
-              <p class="lede">
-                Call numbers from a hidden winner-safe order, keep the running history visible, and use your ticket sheet offline without exposing the prize logic on screen.
-              </p>
+        <section class="panel called-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Called So Far</p>
+              <h2>Grouped by category</h2>
             </div>
-            <div class="status-strip">
-              <div class="status-pill">
-                <span class="status-label">Sequence</span>
-                <strong id="mode-label">Stored order</strong>
-              </div>
-              <div class="status-pill">
-                <span class="status-label">Called</span>
-                <strong id="called-count">0 / 80</strong>
-              </div>
-              <div class="status-pill">
-                <span class="status-label">Remaining</span>
-                <strong id="remaining-count">80</strong>
-              </div>
+          </div>
+          <div class="category-columns" id="called-by-category"></div>
+        </section>
+
+        <section class="panel board-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Master Board</p>
+              <h2>All 80 numbers</h2>
             </div>
-          </header>
+          </div>
+          <div class="number-board" id="number-board"></div>
+        </section>
 
-          <main class="dashboard">
-            <section class="panel caller-panel">
-              <div class="panel-header">
-                <div>
-                  <p class="panel-kicker">Live Draw</p>
-                  <h2>Caller board</h2>
-                </div>
-                <div class="panel-actions">
-                  <button id="new-sequence-button" class="secondary-button" type="button">New Game Sequence</button>
-                  <button id="reset-button" class="ghost-button" type="button">Reset game</button>
-                </div>
-              </div>
-
-              <div class="current-call-card" id="current-call-card">
-                <span class="current-category" id="current-category">Waiting</span>
-                <div class="current-number" id="current-number">--</div>
-                <div class="current-name" id="current-name">Press Next Number to begin</div>
-              </div>
-
-              <div class="button-row">
-                <button id="undo-button" class="secondary-button" type="button">Undo</button>
-                <button id="next-button" class="primary-button" type="button">Next Number</button>
-              </div>
-
-              <div class="sequence-card">
-                <div class="sequence-topline">
-                  <div>
-                    <p class="panel-kicker">Sequence Source</p>
-                    <h3>Private stored order</h3>
-                  </div>
-                </div>
-
-                <div class="button-row compact-row">
-                  <button id="copy-sequence-button" class="secondary-button" type="button">Copy Full Sequence</button>
-                  <button id="copy-called-button" class="ghost-button" type="button">Copy Called List</button>
-                </div>
-                <p class="helper-text" id="sequence-feedback">
-                  Stored caller order derived from <strong id="sequence-source-label">final_tambola_call_sequence.xlsx</strong>. Tap <strong>New Game Sequence</strong> to switch to a fresh hidden order.
-                </p>
-              </div>
-            </section>
-
-            <section class="panel called-panel">
-              <div class="panel-header">
-                <div>
-                  <p class="panel-kicker">Called So Far</p>
-                  <h2>Grouped by category</h2>
-                </div>
-              </div>
-              <div class="category-columns" id="called-by-category"></div>
-            </section>
-
-            <section class="panel board-panel">
-              <div class="panel-header">
-                <div>
-                  <p class="panel-kicker">Master Board</p>
-                  <h2>All 80 numbers</h2>
-                </div>
-              </div>
-              <div class="number-board" id="number-board"></div>
-            </section>
-
-            <section class="panel history-panel">
-              <div class="panel-header">
-                <div>
-                  <p class="panel-kicker">Call History</p>
-                  <h2>Most recent first</h2>
-                </div>
-              </div>
-              <ol class="history-list" id="history-list"></ol>
-            </section>
-          </main>
-        </div>
+        <section class="panel history-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Call History</p>
+              <h2>Most recent first</h2>
+            </div>
+          </div>
+          <ol class="history-list" id="history-list"></ol>
+        </section>
       </main>
     </div>
 

@@ -1,5 +1,5 @@
 const storageKey = "tambola-caller-state-v5";
-const accessKey = "tambola-access-v1";
+const accessKey = "tambola-access-v2";
 const accessCode = "awesome";
 const categoryClasses = {
   "Food Lovers": "category-food",
@@ -9,11 +9,11 @@ const categoryClasses = {
 };
 
 const accessElements = {
-  panel: document.querySelector("#access-panel"),
-  app: document.querySelector("#tambola-app"),
   form: document.querySelector("#access-form"),
   input: document.querySelector("#access-code"),
   feedback: document.querySelector("#access-feedback"),
+  unlockedRow: document.querySelector("#host-unlocked-row"),
+  lockButton: document.querySelector("#lock-controls-button"),
 };
 
 const elements = {
@@ -41,57 +41,16 @@ let appData;
 let numberDirectory;
 let sequencePool;
 let state;
-let appInitialized = false;
+let hostUnlocked = localStorage.getItem(accessKey) === "granted";
 
-if (accessElements.form) {
-  initializeAccessGate();
-}
-
-function initializeAccessGate() {
-  accessElements.form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    await unlockTambola();
-  });
-
-  if (localStorage.getItem(accessKey) === "granted") {
-    showTambolaApp();
-    initializeApp().catch((error) => {
-      console.error(error);
-      setAccessFeedback("Unable to load the Tambola board right now.", true);
-    });
-    return;
-  }
-
-  hideTambolaApp();
-  setAccessFeedback("Enter the code to view the Tambola caller board.");
-  accessElements.input?.focus();
-}
-
-async function unlockTambola() {
-  const enteredCode = accessElements.input?.value.trim().toLowerCase();
-  if (enteredCode !== accessCode) {
-    setAccessFeedback("Incorrect access code. Please try again.", true);
-    return;
-  }
-
-  localStorage.setItem(accessKey, "granted");
-  showTambolaApp();
-  accessElements.input.value = "";
-  setAccessFeedback("Access granted.");
-
-  try {
-    await initializeApp();
-  } catch (error) {
+if (elements.modeLabel) {
+  initializeTambola().catch((error) => {
     console.error(error);
-    setAccessFeedback("Access granted, but the Tambola board failed to load.", true);
-  }
+    setAccessFeedback("Unable to load the Tambola board right now.", true);
+  });
 }
 
-async function initializeApp() {
-  if (appInitialized) {
-    return;
-  }
-
+async function initializeTambola() {
   appData = await fetch("./app-data.json", { cache: "no-store" }).then((response) => {
     if (!response.ok) {
       throw new Error("Unable to load app data.");
@@ -107,14 +66,52 @@ async function initializeApp() {
   sequencePool = appData.sequencePool.map((entry) => [...entry.sequence]);
   state = loadState();
 
+  bindAccessEvents();
   bindAppEvents();
   hydrateControls();
   renderAll();
-  appInitialized = true;
+}
+
+function bindAccessEvents() {
+  accessElements.form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    unlockHostControls();
+  });
+
+  accessElements.lockButton?.addEventListener("click", () => {
+    hostUnlocked = false;
+    localStorage.removeItem(accessKey);
+    renderAccessState();
+    renderAll();
+    setAccessFeedback("Host controls locked on this device.");
+  });
+}
+
+function unlockHostControls() {
+  const enteredCode = accessElements.input?.value.trim().toLowerCase();
+  if (enteredCode !== accessCode) {
+    setAccessFeedback("Incorrect access code. Please try again.", true);
+    return;
+  }
+
+  hostUnlocked = true;
+  localStorage.setItem(accessKey, "granted");
+  if (accessElements.input) {
+    accessElements.input.value = "";
+  }
+
+  renderAccessState();
+  renderAll();
+  setAccessFeedback("Host controls unlocked on this device.");
 }
 
 function bindAppEvents() {
   elements.nextButton.addEventListener("click", () => {
+    if (!hostUnlocked) {
+      setAccessFeedback("Enter the code to use host controls.", true);
+      return;
+    }
+
     const activeSequence = getActiveSequence();
     if (state.currentIndex >= activeSequence.length - 1) {
       setFeedback("All numbers in the stored caller order have already been called.", true);
@@ -127,6 +124,11 @@ function bindAppEvents() {
   });
 
   elements.newSequenceButton.addEventListener("click", () => {
+    if (!hostUnlocked) {
+      setAccessFeedback("Enter the code to change the hidden sequence.", true);
+      return;
+    }
+
     if (sequencePool.length < 2) {
       setFeedback("Only one hidden sequence is available right now.", true);
       return;
@@ -148,6 +150,11 @@ function bindAppEvents() {
   });
 
   elements.undoButton.addEventListener("click", () => {
+    if (!hostUnlocked) {
+      setAccessFeedback("Enter the code to use host controls.", true);
+      return;
+    }
+
     if (state.currentIndex < 0) {
       return;
     }
@@ -158,6 +165,11 @@ function bindAppEvents() {
   });
 
   elements.resetButton.addEventListener("click", () => {
+    if (!hostUnlocked) {
+      setAccessFeedback("Enter the code to use host controls.", true);
+      return;
+    }
+
     state.currentIndex = -1;
     saveState();
     renderAll();
@@ -165,6 +177,11 @@ function bindAppEvents() {
   });
 
   elements.copySequenceButton.addEventListener("click", async () => {
+    if (!hostUnlocked) {
+      setAccessFeedback("Enter the code to reveal the full sequence.", true);
+      return;
+    }
+
     const activeSequence = getActiveSequence();
     await copyText(activeSequence.join(", "));
     setFeedback("Copied the full stored sequence.");
@@ -179,18 +196,13 @@ function bindAppEvents() {
   });
 }
 
-function hideTambolaApp() {
-  accessElements.panel?.removeAttribute("hidden");
-  accessElements.panel?.classList.remove("is-hidden");
-  accessElements.app?.setAttribute("hidden", "");
-  accessElements.app?.classList.add("is-hidden");
-}
-
-function showTambolaApp() {
-  accessElements.panel?.setAttribute("hidden", "");
-  accessElements.panel?.classList.add("is-hidden");
-  accessElements.app?.removeAttribute("hidden");
-  accessElements.app?.classList.remove("is-hidden");
+function renderAccessState() {
+  if (accessElements.form) {
+    accessElements.form.hidden = hostUnlocked;
+  }
+  if (accessElements.unlockedRow) {
+    accessElements.unlockedRow.hidden = !hostUnlocked;
+  }
 }
 
 function setAccessFeedback(message, isError = false) {
@@ -244,6 +256,14 @@ function saveState() {
 function hydrateControls() {
   elements.modeLabel.textContent = "Stored order";
   elements.sequenceSourceLabel.textContent = appData.sequenceDesignSource;
+  renderAccessState();
+
+  if (hostUnlocked) {
+    setAccessFeedback("Host controls unlocked on this device.");
+    return;
+  }
+
+  setAccessFeedback("Without the code, this page stays in viewer mode.");
 }
 
 function getActiveSequence() {
@@ -290,15 +310,20 @@ function renderAll() {
   elements.currentNumber.textContent = currentEntry?.number ?? "--";
   elements.currentName.textContent = currentEntry ? currentEntry.name : "Press Next Number to begin";
   elements.currentCallCard.className = `current-call-card ${currentEntry ? categoryClasses[currentEntry.category] : ""}`;
-  elements.nextButton.disabled = state.currentIndex >= activeSequence.length - 1;
-  elements.undoButton.disabled = state.currentIndex < 0;
+  elements.nextButton.disabled = !hostUnlocked || state.currentIndex >= activeSequence.length - 1;
+  elements.undoButton.disabled = !hostUnlocked || state.currentIndex < 0;
+  elements.resetButton.disabled = !hostUnlocked;
+  elements.newSequenceButton.disabled = !hostUnlocked;
+  elements.copySequenceButton.disabled = !hostUnlocked;
 
   if (state.currentIndex >= 0) {
     const nextNumber = activeSequence[state.currentIndex + 1];
-    const nextLabel = nextNumber ? ` Next in sequence: ${nextNumber}.` : " Sequence complete.";
-    setFeedback(`Using the private stored order. Position ${state.currentIndex + 1} of ${activeSequence.length}.${nextLabel}`);
+    const nextLabel = hostUnlocked && nextNumber ? ` Next in sequence: ${nextNumber}.` : hostUnlocked ? " Sequence complete." : "";
+    setFeedback(`Position ${state.currentIndex + 1} of ${activeSequence.length}.${nextLabel}`);
+  } else if (hostUnlocked) {
+    setFeedback(`Host controls unlocked. Ready to start at position 1 of ${activeSequence.length}.`);
   } else {
-    setFeedback(`Using the private stored order derived from ${appData.sequenceDesignSource}. Ready to start at position 1 of ${activeSequence.length}.`);
+    setFeedback("Viewer mode on this device. Current and past calls stay visible, but host controls are locked.");
   }
 
   renderCalledByCategory(calledSet);
