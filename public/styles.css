@@ -400,7 +400,8 @@ a {
 .link-card-grid,
 .details-grid,
 .activity-grid,
-.menu-sections {
+.menu-sections,
+.paint-reference-grid {
   display: grid;
   gap: 16px;
 }
@@ -514,6 +515,42 @@ a {
 
 .activity-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.paint-reference-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.paint-reference-card {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(109, 66, 72, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 32px rgba(102, 56, 64, 0.08);
+}
+
+.paint-reference-card img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: rgba(255, 252, 248, 0.9);
+}
+
+.paint-reference-card figcaption {
+  display: grid;
+  gap: 8px;
+  padding: 16px 16px 18px;
+}
+
+.paint-reference-card strong {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+
+.paint-reference-card span {
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .access-panel {
@@ -931,7 +968,8 @@ button:disabled {
   .menu-layout,
   .activity-grid,
   .link-card-grid,
-  .schedule-grid {
+  .schedule-grid,
+  .paint-reference-grid {
     grid-template-columns: 1fr;
   }
 
