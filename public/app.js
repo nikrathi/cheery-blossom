@@ -27,7 +27,7 @@ const elements = {
   historyList: document.querySelector("#history-list"),
 };
 
-const appData = await fetch("/app-data.json", { cache: "no-store" }).then((response) => {
+const appData = await fetch("./app-data.json", { cache: "no-store" }).then((response) => {
   if (!response.ok) {
     throw new Error("Unable to load app data.");
   }
