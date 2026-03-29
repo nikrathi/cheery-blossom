@@ -1,0 +1,9 @@
+.DS_Store
+.swift-cache/
+assets/
+output/
+deploy/
+*.jp2
+*.xlsx
+*.xls
+*.csv

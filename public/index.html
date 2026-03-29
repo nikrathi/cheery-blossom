@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambola Caller</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Custom Tambola Caller</p>
+          <h1>Run the game from your phone without losing the trail.</h1>
+          <p class="lede">
+            Call numbers from a hidden winner-safe order, keep the running history visible, and use your ticket sheet offline without exposing the prize logic on screen.
+          </p>
+        </div>
+        <div class="status-strip">
+          <div class="status-pill">
+            <span class="status-label">Sequence</span>
+            <strong id="mode-label">Stored order</strong>
+          </div>
+          <div class="status-pill">
+            <span class="status-label">Called</span>
+            <strong id="called-count">0 / 80</strong>
+          </div>
+          <div class="status-pill">
+            <span class="status-label">Remaining</span>
+            <strong id="remaining-count">80</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel caller-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Live Draw</p>
+              <h2>Caller board</h2>
+            </div>
+            <div class="panel-actions">
+              <button id="new-sequence-button" class="secondary-button" type="button">New Game Sequence</button>
+              <button id="reset-button" class="ghost-button" type="button">Reset game</button>
+            </div>
+          </div>
+
+          <div class="current-call-card" id="current-call-card">
+            <span class="current-category" id="current-category">Waiting</span>
+            <div class="current-number" id="current-number">--</div>
+            <div class="current-name" id="current-name">Press Next Number to begin</div>
+          </div>
+
+          <div class="button-row">
+            <button id="undo-button" class="secondary-button" type="button">Undo</button>
+            <button id="next-button" class="primary-button" type="button">Next Number</button>
+          </div>
+
+          <div class="sequence-card">
+            <div class="sequence-topline">
+              <div>
+                <p class="panel-kicker">Sequence Source</p>
+                <h3>Private stored order</h3>
+              </div>
+            </div>
+
+            <div class="button-row compact-row">
+              <button id="copy-sequence-button" class="secondary-button" type="button">Copy Full Sequence</button>
+              <button id="copy-called-button" class="ghost-button" type="button">Copy Called List</button>
+            </div>
+            <p class="helper-text" id="sequence-feedback">
+              Stored caller order derived from <strong id="sequence-source-label">final_tambola_call_sequence.xlsx</strong>. Tap <strong>New Game Sequence</strong> to switch to a fresh hidden order.
+            </p>
+          </div>
+        </section>
+
+        <section class="panel called-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Called So Far</p>
+              <h2>Grouped by category</h2>
+            </div>
+          </div>
+          <div class="category-columns" id="called-by-category"></div>
+        </section>
+
+        <section class="panel board-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Master Board</p>
+              <h2>All 80 numbers</h2>
+            </div>
+          </div>
+          <div class="number-board" id="number-board"></div>
+        </section>
+
+        <section class="panel history-panel">
+          <div class="panel-header">
+            <div>
+              <p class="panel-kicker">Call History</p>
+              <h2>Most recent first</h2>
+            </div>
+          </div>
+          <ol class="history-list" id="history-list"></ol>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
