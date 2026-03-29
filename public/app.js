@@ -1,9 +1,19 @@
 const storageKey = "tambola-caller-state-v5";
+const accessKey = "tambola-access-v1";
+const accessCode = "awesome";
 const categoryClasses = {
   "Food Lovers": "category-food",
   "Sakura Vibes": "category-sakura",
   "Color Mood": "category-color",
   "Japan Vibes": "category-japan",
+};
+
+const accessElements = {
+  panel: document.querySelector("#access-panel"),
+  app: document.querySelector("#tambola-app"),
+  form: document.querySelector("#access-form"),
+  input: document.querySelector("#access-code"),
+  feedback: document.querySelector("#access-feedback"),
 };
 
 const elements = {
@@ -27,87 +37,170 @@ const elements = {
   historyList: document.querySelector("#history-list"),
 };
 
-const appData = await fetch("./app-data.json", { cache: "no-store" }).then((response) => {
-  if (!response.ok) {
-    throw new Error("Unable to load app data.");
-  }
-  return response.json();
-});
+let appData;
+let numberDirectory;
+let sequencePool;
+let state;
+let appInitialized = false;
 
-if (!Array.isArray(appData.sequencePool) || !appData.sequencePool.length) {
-  throw new Error("No hidden sequence pool was found.");
+if (accessElements.form) {
+  initializeAccessGate();
 }
 
-const numberDirectory = new Map(appData.numberDirectory.map((entry) => [entry.number, entry]));
-const sequencePool = appData.sequencePool.map((entry) => [...entry.sequence]);
+function initializeAccessGate() {
+  accessElements.form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await unlockTambola();
+  });
 
-let state = loadState();
-hydrateControls();
-renderAll();
-
-elements.nextButton.addEventListener("click", () => {
-  const activeSequence = getActiveSequence();
-  if (state.currentIndex >= activeSequence.length - 1) {
-    setFeedback("All numbers in the stored caller order have already been called.", true);
+  if (localStorage.getItem(accessKey) === "granted") {
+    showTambolaApp();
+    initializeApp().catch((error) => {
+      console.error(error);
+      setAccessFeedback("Unable to load the Tambola board right now.", true);
+    });
     return;
   }
 
-  state.currentIndex += 1;
-  saveState();
-  renderAll();
-});
+  hideTambolaApp();
+  setAccessFeedback("Enter the code to view the Tambola caller board.");
+  accessElements.input?.focus();
+}
 
-elements.newSequenceButton.addEventListener("click", () => {
-  if (sequencePool.length < 2) {
-    setFeedback("Only one hidden sequence is available right now.", true);
+async function unlockTambola() {
+  const enteredCode = accessElements.input?.value.trim().toLowerCase();
+  if (enteredCode !== accessCode) {
+    setAccessFeedback("Incorrect access code. Please try again.", true);
     return;
   }
 
-  const { nextIndex, restartedCycle } = chooseNextSequenceIndex();
-  state.sequenceIndex = nextIndex;
-  state.currentIndex = -1;
-  state.usedSequenceIndices = restartedCycle ? [nextIndex] : [...state.usedSequenceIndices, nextIndex];
-  saveState();
-  renderAll();
+  localStorage.setItem(accessKey, "granted");
+  showTambolaApp();
+  accessElements.input.value = "";
+  setAccessFeedback("Access granted.");
 
-  if (restartedCycle) {
-    setFeedback("Loaded a fresh hidden sequence. All stored orders were used once, so a new rotation has started.");
+  try {
+    await initializeApp();
+  } catch (error) {
+    console.error(error);
+    setAccessFeedback("Access granted, but the Tambola board failed to load.", true);
+  }
+}
+
+async function initializeApp() {
+  if (appInitialized) {
     return;
   }
 
-  setFeedback("Loaded a new hidden sequence and reset the board.");
-});
+  appData = await fetch("./app-data.json", { cache: "no-store" }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Unable to load app data.");
+    }
+    return response.json();
+  });
 
-elements.undoButton.addEventListener("click", () => {
-  if (state.currentIndex < 0) {
+  if (!Array.isArray(appData.sequencePool) || !appData.sequencePool.length) {
+    throw new Error("No hidden sequence pool was found.");
+  }
+
+  numberDirectory = new Map(appData.numberDirectory.map((entry) => [entry.number, entry]));
+  sequencePool = appData.sequencePool.map((entry) => [...entry.sequence]);
+  state = loadState();
+
+  bindAppEvents();
+  hydrateControls();
+  renderAll();
+  appInitialized = true;
+}
+
+function bindAppEvents() {
+  elements.nextButton.addEventListener("click", () => {
+    const activeSequence = getActiveSequence();
+    if (state.currentIndex >= activeSequence.length - 1) {
+      setFeedback("All numbers in the stored caller order have already been called.", true);
+      return;
+    }
+
+    state.currentIndex += 1;
+    saveState();
+    renderAll();
+  });
+
+  elements.newSequenceButton.addEventListener("click", () => {
+    if (sequencePool.length < 2) {
+      setFeedback("Only one hidden sequence is available right now.", true);
+      return;
+    }
+
+    const { nextIndex, restartedCycle } = chooseNextSequenceIndex();
+    state.sequenceIndex = nextIndex;
+    state.currentIndex = -1;
+    state.usedSequenceIndices = restartedCycle ? [nextIndex] : [...state.usedSequenceIndices, nextIndex];
+    saveState();
+    renderAll();
+
+    if (restartedCycle) {
+      setFeedback("Loaded a fresh hidden sequence. All stored orders were used once, so a new rotation has started.");
+      return;
+    }
+
+    setFeedback("Loaded a new hidden sequence and reset the board.");
+  });
+
+  elements.undoButton.addEventListener("click", () => {
+    if (state.currentIndex < 0) {
+      return;
+    }
+
+    state.currentIndex -= 1;
+    saveState();
+    renderAll();
+  });
+
+  elements.resetButton.addEventListener("click", () => {
+    state.currentIndex = -1;
+    saveState();
+    renderAll();
+    setFeedback("Caller reset. The stored sequence will restart from the first number.");
+  });
+
+  elements.copySequenceButton.addEventListener("click", async () => {
+    const activeSequence = getActiveSequence();
+    await copyText(activeSequence.join(", "));
+    setFeedback("Copied the full stored sequence.");
+  });
+
+  elements.copyCalledButton.addEventListener("click", async () => {
+    const calledText = getCalledNumbers()
+      .map((number) => formatEntry(numberDirectory.get(number)))
+      .join("\n");
+    await copyText(calledText || "No numbers called yet.");
+    setFeedback("Copied called numbers list.");
+  });
+}
+
+function hideTambolaApp() {
+  accessElements.panel?.removeAttribute("hidden");
+  accessElements.panel?.classList.remove("is-hidden");
+  accessElements.app?.setAttribute("hidden", "");
+  accessElements.app?.classList.add("is-hidden");
+}
+
+function showTambolaApp() {
+  accessElements.panel?.setAttribute("hidden", "");
+  accessElements.panel?.classList.add("is-hidden");
+  accessElements.app?.removeAttribute("hidden");
+  accessElements.app?.classList.remove("is-hidden");
+}
+
+function setAccessFeedback(message, isError = false) {
+  if (!accessElements.feedback) {
     return;
   }
 
-  state.currentIndex -= 1;
-  saveState();
-  renderAll();
-});
-
-elements.resetButton.addEventListener("click", () => {
-  state.currentIndex = -1;
-  saveState();
-  renderAll();
-  setFeedback("Caller reset. The stored sequence will restart from the first number.");
-});
-
-elements.copySequenceButton.addEventListener("click", async () => {
-  const activeSequence = getActiveSequence();
-  await copyText(activeSequence.join(", "));
-  setFeedback("Copied the full stored sequence.");
-});
-
-elements.copyCalledButton.addEventListener("click", async () => {
-  const calledText = getCalledNumbers()
-    .map((number) => formatEntry(numberDirectory.get(number)))
-    .join("\n");
-  await copyText(calledText || "No numbers called yet.");
-  setFeedback("Copied called numbers list.");
-});
+  accessElements.feedback.textContent = message;
+  accessElements.feedback.classList.toggle("error", isError);
+}
 
 function loadState() {
   const defaults = { currentIndex: -1, sequenceIndex: 0, usedSequenceIndices: [0] };

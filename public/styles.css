@@ -54,6 +54,10 @@ img {
   max-width: 100%;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
@@ -488,6 +492,62 @@ a {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.access-panel {
+  display: grid;
+  gap: 18px;
+}
+
+.access-title {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+.access-form {
+  display: grid;
+  gap: 10px;
+}
+
+.access-label {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.access-row {
+  display: flex;
+  gap: 12px;
+}
+
+.access-input {
+  flex: 1 1 auto;
+  min-height: 52px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(109, 66, 72, 0.16);
+  background: rgba(255, 255, 255, 0.84);
+  color: var(--ink);
+  font: inherit;
+}
+
+.access-input:focus {
+  outline: 2px solid rgba(212, 91, 131, 0.25);
+  outline-offset: 2px;
+}
+
+.access-submit {
+  flex: 0 0 auto;
+}
+
+.tambola-app {
+  display: grid;
+  gap: 18px;
+}
+
 .status-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -869,6 +929,10 @@ button:disabled {
   .section-heading,
   .panel-header {
     align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .access-row {
     flex-direction: column;
   }
 
