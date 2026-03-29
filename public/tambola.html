@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tambola Caller | Cherry Blossom Tea Party</title>
+    <script>
+      if (window.location.hostname === "nikrathi.github.io") {
+        const redirectUrl = new URL("https://tambola-caller-production.up.railway.app/tambola.html");
+        redirectUrl.search = window.location.search;
+        redirectUrl.hash = window.location.hash;
+        window.location.replace(redirectUrl.toString());
+      }
+    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
