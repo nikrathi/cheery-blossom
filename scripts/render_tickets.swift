@@ -1,6 +1,13 @@
 import AppKit
 import Foundation
 
+func resolveURL(root: URL, environmentKey: String, defaultPath: String, isDirectory: Bool = false) -> URL {
+    if let override = ProcessInfo.processInfo.environment[environmentKey], !override.isEmpty {
+        return URL(fileURLWithPath: override, isDirectory: isDirectory)
+    }
+    return root.appendingPathComponent(defaultPath, isDirectory: isDirectory)
+}
+
 struct Item: Codable {
     let name: String
     let number: Int
@@ -34,10 +41,10 @@ struct PanelLayout {
 }
 
 let root = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-let baseImageURL = root.appendingPathComponent("assets/base_template.png")
-let manifestURL = root.appendingPathComponent("output/tickets_manifest.json")
-let outputDirectory = root.appendingPathComponent("output/tickets", isDirectory: true)
-let previewDirectory = root.appendingPathComponent("output/previews", isDirectory: true)
+let baseImageURL = resolveURL(root: root, environmentKey: "TAMBOLA_BASE_IMAGE", defaultPath: "assets/base_template.png")
+let manifestURL = resolveURL(root: root, environmentKey: "TAMBOLA_MANIFEST_JSON", defaultPath: "output/tickets_manifest.json")
+let outputDirectory = resolveURL(root: root, environmentKey: "TAMBOLA_TICKETS_OUTPUT_DIR", defaultPath: "output/tickets", isDirectory: true)
+let previewDirectory = resolveURL(root: root, environmentKey: "TAMBOLA_PREVIEWS_OUTPUT_DIR", defaultPath: "output/previews", isDirectory: true)
 
 let decoder = JSONDecoder()
 let manifestData = try Data(contentsOf: manifestURL)

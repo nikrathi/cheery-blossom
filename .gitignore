@@ -7,5 +7,7 @@ deploy/
 *.xlsx
 *.xls
 *.csv
+__pycache__/
+*.pyc
 0AD6FC04-D936-4259-878E-B700FFB5ADAC.PNG
 data/tambola-runtime-state.json
