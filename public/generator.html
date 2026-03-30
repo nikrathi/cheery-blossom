@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambola Generator | Cherry Blossom Tea Party</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="./index.html">Cherry Blossom Tea Party</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a class="nav-link" href="./index.html">Home</a>
+          <a class="nav-link" href="./lunch.html">Lunch</a>
+          <a class="nav-link" href="./paint.html">Paint</a>
+          <a class="nav-link" href="./tambola.html">Tambola</a>
+          <a class="nav-link is-active" href="./generator.html">Generator</a>
+        </nav>
+      </header>
+
+      <main class="site-stack">
+        <section class="hero hero-subpage">
+          <div class="hero-copy">
+            <p class="eyebrow">Organizer Tool</p>
+            <h1>Generate the tickets, validate them, and then run the game.</h1>
+            <p class="lede">
+              This page documents the full ticket-generation flow for the Cherry Blossom Tambola setup. Build the ticket set, export the caller data, and then open the Tambola page to run the game.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-link" href="https://github.com/nikrathi/cheery-blossom" target="_blank" rel="noreferrer">Open GitHub Repo</a>
+              <a class="ghost-link" href="./tambola.html">Open Tambola Caller</a>
+            </div>
+          </div>
+          <aside class="hero-note">
+            <p class="panel-kicker">What It Produces</p>
+            <ol class="timeline-preview compact-timeline">
+              <li><strong>Ticket CSV</strong><span><code>tambola_ticket_manifest.csv</code></span></li>
+              <li><strong>Ticket Images</strong><span>30 rendered ticket PNGs and a contact sheet</span></li>
+              <li><strong>Validation Report</strong><span>Checks ticket correctness before the game</span></li>
+              <li><strong>Tambola App Data</strong><span>Exports the browser data for the caller page</span></li>
+            </ol>
+          </aside>
+        </section>
+
+        <section class="panel section-panel">
+          <div class="section-heading">
+            <div>
+              <p class="panel-kicker">Main Command</p>
+              <h2>Run the whole build in one step</h2>
+            </div>
+            <p class="section-copy">This is the quickest way to produce a full ticket set and update the caller data for the site.</p>
+          </div>
+
+          <div class="generator-grid">
+            <article class="generator-card">
+              <span class="time-chip">Full build</span>
+              <h3>Python entrypoint</h3>
+              <pre class="command-snippet"><code>python3 scripts/tambola_ticket_service.py build</code></pre>
+              <p>Generates the manifest, CSV, validation report, website app data, and rendered ticket images.</p>
+            </article>
+
+            <article class="generator-card">
+              <span class="time-chip">Wrapper</span>
+              <h3>Shell shortcut</h3>
+              <pre class="command-snippet"><code>./scripts/build_tickets.sh</code></pre>
+              <p>Runs the same build flow through the wrapper script.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel section-panel">
+          <div class="section-heading">
+            <div>
+              <p class="panel-kicker">Useful Commands</p>
+              <h2>Run only the part you need</h2>
+            </div>
+          </div>
+
+          <div class="generator-grid generator-grid-wide">
+            <article class="generator-card">
+              <h3>Generate manifests only</h3>
+              <pre class="command-snippet"><code>python3 scripts/tambola_ticket_service.py generate</code></pre>
+              <p>Writes the JSON, Markdown, and CSV ticket manifests.</p>
+            </article>
+
+            <article class="generator-card">
+              <h3>Validate an existing CSV</h3>
+              <pre class="command-snippet"><code>python3 scripts/tambola_ticket_service.py validate</code></pre>
+              <p>Checks ticket uniqueness, number/name consistency, category balance, and frequency rules.</p>
+            </article>
+
+            <article class="generator-card">
+              <h3>Export caller app data</h3>
+              <pre class="command-snippet"><code>python3 scripts/tambola_ticket_service.py export-app-data</code></pre>
+              <p>Rebuilds <code>public/app-data.json</code> from the CSV so the Tambola page uses the new ticket set.</p>
+            </article>
+
+            <article class="generator-card">
+              <h3>Skip image rendering</h3>
+              <pre class="command-snippet"><code>python3 scripts/tambola_ticket_service.py build --no-render</code></pre>
+              <p>Useful if you only need the CSV, validation report, and caller data.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel section-panel">
+          <div class="section-heading">
+            <div>
+              <p class="panel-kicker">Workflow</p>
+              <h2>How the generator and caller fit together</h2>
+            </div>
+          </div>
+
+          <div class="schedule-grid">
+            <article class="schedule-card">
+              <span class="time-chip">Step 1</span>
+              <h3>Generate the ticket set</h3>
+              <p>Run the Python service to create a fresh balanced ticket manifest with 30 unique tickets.</p>
+            </article>
+            <article class="schedule-card">
+              <span class="time-chip">Step 2</span>
+              <h3>Validate everything</h3>
+              <p>Make sure every ticket has 16 unique entries, category balance, correct name-to-number mapping, and no duplicate tickets.</p>
+            </article>
+            <article class="schedule-card">
+              <span class="time-chip">Step 3</span>
+              <h3>Export the caller data</h3>
+              <p>The service updates the website data so the Tambola page uses the same ticket set when it searches for random valid call orders.</p>
+            </article>
+            <article class="schedule-card">
+              <span class="time-chip">Step 4</span>
+              <h3>Run the game</h3>
+              <p>Open the Tambola page and start a new game. The caller searches for a fresh random order with one earliest winner per prize.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel section-panel">
+          <div class="section-heading">
+            <div>
+              <p class="panel-kicker">Key Files</p>
+              <h2>What lives where</h2>
+            </div>
+          </div>
+
+          <div class="generator-list-grid">
+            <article class="detail-panel">
+              <h3>Ticket service</h3>
+              <ul class="feature-list">
+                <li><code>scripts/tambola_ticket_service.py</code></li>
+                <li><code>scripts/generate_ticket_manifest.py</code></li>
+                <li><code>scripts/validate_tickets_csv.py</code></li>
+              </ul>
+            </article>
+
+            <article class="detail-panel">
+              <h3>Renderer and template</h3>
+              <ul class="feature-list">
+                <li><code>scripts/render_tickets.swift</code></li>
+                <li><code>assets/base_template.png</code></li>
+                <li><code>output/tickets/</code></li>
+              </ul>
+            </article>
+
+            <article class="detail-panel">
+              <h3>Caller site</h3>
+              <ul class="feature-list">
+                <li><code>public/tambola.html</code></li>
+                <li><code>public/app.js</code></li>
+                <li><code>public/app-data.json</code></li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
