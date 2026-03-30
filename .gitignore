@@ -1,6 +1,7 @@
 .DS_Store
 .swift-cache/
-assets/
+assets/*
+!assets/base_template.png
 output/
 deploy/
 *.jp2

@@ -177,6 +177,16 @@ def write_validation_report(result, report_path):
 
 
 def run_swift_renderer(manifest_json, base_image, tickets_dir, previews_dir, render_script):
+    if not base_image.exists():
+        raise FileNotFoundError(
+            f"Base template image not found at {base_image}. "
+            "Provide --base-image or make sure assets/base_template.png exists."
+        )
+    if not manifest_json.exists():
+        raise FileNotFoundError(
+            f"Manifest JSON not found at {manifest_json}. Generate the manifest before rendering."
+        )
+
     env = os.environ.copy()
     module_cache = str(ROOT / ".swift-cache")
     env["SWIFT_MODULECACHE_PATH"] = module_cache
