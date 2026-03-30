@@ -1,5 +1,6 @@
 const accessKey = "tambola-host-access-v1";
-const pollIntervalMs = 2000;
+const stateKey = "tambola-local-game-v2";
+const accessCode = "awesome";
 const categoryClasses = {
   "Food Lovers": "category-food",
   "Sakura Vibes": "category-sakura",
@@ -40,8 +41,7 @@ let appData;
 let numberDirectory;
 let currentState;
 let hostAccessCode = sessionStorage.getItem(accessKey) || "";
-let pollHandle;
-let refreshInFlight = false;
+let busy = false;
 
 if (elements.modeLabel) {
   initializeTambola().catch((error) => {
@@ -62,15 +62,8 @@ async function initializeTambola() {
   bindAccessEvents();
   bindAppEvents();
   hydrateControls();
-  await refreshState();
-  pollHandle = window.setInterval(() => {
-    refreshState().catch((error) => console.error(error));
-  }, pollIntervalMs);
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "visible") {
-      refreshState().catch((error) => console.error(error));
-    }
-  });
+  await loadOrCreateState();
+  renderAll();
 }
 
 function bindAccessEvents() {
@@ -89,21 +82,13 @@ function bindAccessEvents() {
 }
 
 async function unlockHostControls() {
-  const enteredCode = accessElements.input?.value.trim() || "";
+  const enteredCode = accessElements.input?.value.trim().toLowerCase() || "";
   if (!enteredCode) {
     setAccessFeedback("Enter the access code first.", true);
     return;
   }
 
-  const response = await fetch("/api/tambola/verify", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify({ accessCode: enteredCode }),
-  });
-
-  if (!response.ok) {
+  if (enteredCode !== accessCode) {
     setAccessFeedback("Incorrect access code. Please try again.", true);
     return;
   }
@@ -115,7 +100,7 @@ async function unlockHostControls() {
   }
 
   renderAccessState();
-  await refreshState();
+  renderAll();
   setAccessFeedback("Host controls unlocked on this device.");
 }
 
@@ -142,29 +127,12 @@ function bindAppEvents() {
       return;
     }
 
-    const response = await fetch("/api/tambola/sequence", {
-      headers: {
-        "x-tambola-access-code": hostAccessCode,
-      },
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      hostAccessCode = "";
-      sessionStorage.removeItem(accessKey);
-      renderAccessState();
-      renderAll();
-      setAccessFeedback("Host access expired. Enter the code again.", true);
-      return;
-    }
-
-    const payload = await response.json();
-    await copyText(payload.sequence.join(", "));
-    setFeedback("Copied the full stored sequence.");
+    await copyText((currentState?.sequence || []).join(", "));
+    setFeedback("Copied the full validated random sequence.");
   });
 
   elements.copyCalledButton.addEventListener("click", async () => {
-    const calledText = (currentState?.calledNumbers || [])
+    const calledText = getViewState().calledNumbers
       .map((number) => formatEntry(numberDirectory.get(number)))
       .join("\n");
     await copyText(calledText || "No numbers called yet.");
@@ -172,69 +140,229 @@ function bindAppEvents() {
   });
 }
 
+async function loadOrCreateState() {
+  const savedState = readSavedState();
+  if (isValidState(savedState)) {
+    currentState = savedState;
+    return;
+  }
+
+  await createNewGame();
+}
+
+function readSavedState() {
+  try {
+    const raw = localStorage.getItem(stateKey);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function isValidState(candidate) {
+  if (!candidate || !Array.isArray(candidate.sequence)) {
+    return false;
+  }
+
+  if (candidate.sequence.length !== appData.maxNumber) {
+    return false;
+  }
+
+  if (new Set(candidate.sequence).size !== candidate.sequence.length) {
+    return false;
+  }
+
+  const currentIndex = Number.isInteger(candidate.currentIndex) ? candidate.currentIndex : -1;
+  if (currentIndex < -1 || currentIndex >= candidate.sequence.length) {
+    return false;
+  }
+
+  const expectedNumbers = new Set(appData.numberDirectory.map((entry) => entry.number));
+  if (candidate.sequence.some((number) => !expectedNumbers.has(number))) {
+    return false;
+  }
+
+  return matchesWinnerPolicy(analyzeSequence(candidate.sequence));
+}
+
+function persistState() {
+  localStorage.setItem(stateKey, JSON.stringify(currentState));
+}
+
 async function performAction(action) {
+  if (busy) {
+    return;
+  }
+
   if (!hostAccessCode) {
     setAccessFeedback("Enter the code to use host controls.", true);
     return;
   }
 
-  const response = await fetch("/api/tambola/action", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-    },
-    body: JSON.stringify({ action, accessCode: hostAccessCode }),
-  });
-
-  if (!response.ok) {
-    hostAccessCode = "";
-    sessionStorage.removeItem(accessKey);
-    renderAccessState();
-    renderAll();
-    setAccessFeedback("Host access expired. Enter the code again.", true);
-    return;
-  }
-
-  currentState = await response.json();
+  busy = true;
   renderAll();
-}
-
-async function refreshState() {
-  if (refreshInFlight) {
-    return;
-  }
-
-  refreshInFlight = true;
   try {
-    const headers = hostAccessCode
-      ? { "x-tambola-access-code": hostAccessCode }
-      : undefined;
-    const response = await fetch("/api/tambola/state", {
-      headers,
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      throw new Error("Unable to refresh Tambola state.");
+    switch (action) {
+      case "next":
+        if (currentState.currentIndex < currentState.sequence.length - 1) {
+          currentState.currentIndex += 1;
+        }
+        break;
+      case "undo":
+        if (currentState.currentIndex > -1) {
+          currentState.currentIndex -= 1;
+        }
+        break;
+      case "reset":
+        currentState.currentIndex = -1;
+        break;
+      case "new-sequence":
+        await createNewGame();
+        break;
+      default:
+        throw new Error(`Unsupported action: ${action}`);
     }
 
-    currentState = await response.json();
-    renderAll();
+    if (action !== "new-sequence") {
+      currentState.updatedAt = new Date().toISOString();
+      persistState();
+    }
   } finally {
-    refreshInFlight = false;
+    busy = false;
+    renderAll();
   }
+}
+
+async function createNewGame() {
+  setFeedback("Searching for a validated random order...");
+  const nextState = await generateValidatedState();
+  currentState = nextState;
+  persistState();
+}
+
+async function generateValidatedState() {
+  const availableNumbers = appData.numberDirectory.map((entry) => entry.number);
+  let attempts = 0;
+
+  while (attempts < 10000) {
+    attempts += 1;
+    const sequence = shuffle([...availableNumbers]);
+    const winnersByPrize = analyzeSequence(sequence);
+
+    if (matchesWinnerPolicy(winnersByPrize)) {
+      return {
+        sequence,
+        currentIndex: -1,
+        searchAttempts: attempts,
+        generatedAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+    }
+
+    if (attempts % 250 === 0) {
+      await nextFrame();
+    }
+  }
+
+  throw new Error("Unable to find a valid random order after many attempts.");
+}
+
+function analyzeSequence(sequence) {
+  const positions = new Map(sequence.map((number, index) => [number, index + 1]));
+  const winnersByPrize = {};
+
+  for (const prize of appData.prizeOrder) {
+    const timings = appData.tickets.map((ticket) => {
+      const entries = prize === "Full House" ? ticket.entries : ticket.categories[prize];
+      const callIndex = Math.max(...entries.map((entry) => positions.get(entry.number)));
+      return { ticketId: ticket.ticketId, callIndex };
+    });
+
+    const winningCall = Math.min(...timings.map((timing) => timing.callIndex));
+    const winningTickets = timings
+      .filter((timing) => timing.callIndex === winningCall)
+      .map((timing) => timing.ticketId);
+
+    winnersByPrize[prize] = {
+      winningCall,
+      winningTickets,
+    };
+  }
+
+  return winnersByPrize;
+}
+
+function matchesWinnerPolicy(winnersByPrize) {
+  const winnerIds = [];
+
+  for (const prize of appData.prizeOrder) {
+    const winners = winnersByPrize[prize]?.winningTickets || [];
+    if (appData.winnerPolicy?.uniquePrizeWinner && winners.length !== 1) {
+      return false;
+    }
+    winnerIds.push(winners[0]);
+  }
+
+  if (appData.winnerPolicy?.distinctWinningTickets) {
+    return new Set(winnerIds).size === winnerIds.length;
+  }
+
+  return true;
+}
+
+function shuffle(values) {
+  for (let index = values.length - 1; index > 0; index -= 1) {
+    const swapIndex = randomInt(index + 1);
+    [values[index], values[swapIndex]] = [values[swapIndex], values[index]];
+  }
+  return values;
+}
+
+function randomInt(maxExclusive) {
+  if (window.crypto?.getRandomValues) {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return array[0] % maxExclusive;
+  }
+
+  return Math.floor(Math.random() * maxExclusive);
+}
+
+function nextFrame() {
+  return new Promise((resolve) => window.requestAnimationFrame(() => resolve()));
+}
+
+function getViewState() {
+  const sequence = currentState?.sequence || [];
+  const currentIndex = currentState?.currentIndex ?? -1;
+  const calledNumbers = sequence.slice(0, currentIndex + 1);
+  const currentNumber = currentIndex >= 0 ? sequence[currentIndex] : null;
+  const currentEntry = currentNumber ? numberDirectory.get(currentNumber) : null;
+  const nextNumber = currentIndex < sequence.length - 1 ? sequence[currentIndex + 1] : null;
+
+  return {
+    sequence,
+    currentIndex,
+    calledNumbers,
+    calledCount: calledNumbers.length,
+    remainingCount: Math.max(sequence.length - calledNumbers.length, 0),
+    sequenceLength: sequence.length,
+    currentEntry,
+    nextNumber,
+  };
 }
 
 function hydrateControls() {
-  elements.modeLabel.textContent = "Live shared state";
-  elements.sequenceSourceLabel.textContent = appData.sequenceDesignSource;
+  elements.modeLabel.textContent = "Validated random order";
+  elements.sequenceSourceLabel.textContent = "random search with one earliest winner per prize";
   renderAccessState();
+
   if (hostAccessCode) {
     setAccessFeedback("Host controls unlocked on this device.");
     return;
   }
 
-  setAccessFeedback("Without the code, this page stays in viewer mode.");
+  setAccessFeedback("Without the code, this page stays in viewer mode on this device.");
 }
 
 function renderAccessState() {
@@ -257,36 +385,39 @@ function setAccessFeedback(message, isError = false) {
 }
 
 function renderAll() {
-  const calledNumbers = currentState?.calledNumbers || [];
-  const calledSet = new Set(calledNumbers);
-  const currentEntry = currentState?.currentEntry || null;
+  const view = getViewState();
+  const calledSet = new Set(view.calledNumbers);
+  const currentEntry = view.currentEntry || null;
   const hostUnlocked = Boolean(hostAccessCode);
 
-  elements.calledCount.textContent = `${currentState?.calledCount ?? 0} / ${currentState?.sequenceLength ?? appData.maxNumber}`;
-  elements.remainingCount.textContent = String(currentState?.remainingCount ?? appData.maxNumber);
+  elements.calledCount.textContent = `${view.calledCount} / ${view.sequenceLength || appData.maxNumber}`;
+  elements.remainingCount.textContent = String(view.remainingCount ?? appData.maxNumber);
   elements.currentCategory.textContent = currentEntry?.category || "Waiting";
   elements.currentNumber.textContent = currentEntry?.number ?? "--";
   elements.currentName.textContent = currentEntry ? currentEntry.name : "Waiting for the first call";
   elements.currentCallCard.className = `current-call-card ${currentEntry ? categoryClasses[currentEntry.category] : ""}`;
 
-  elements.nextButton.disabled = !hostUnlocked || (currentState?.calledCount ?? 0) >= (currentState?.sequenceLength ?? 0);
-  elements.undoButton.disabled = !hostUnlocked || (currentState?.calledCount ?? 0) === 0;
-  elements.resetButton.disabled = !hostUnlocked;
-  elements.newSequenceButton.disabled = !hostUnlocked;
-  elements.copySequenceButton.disabled = !hostUnlocked;
+  elements.nextButton.disabled = busy || !hostUnlocked || view.calledCount >= view.sequenceLength;
+  elements.undoButton.disabled = busy || !hostUnlocked || view.calledCount === 0;
+  elements.resetButton.disabled = busy || !hostUnlocked;
+  elements.newSequenceButton.disabled = busy || !hostUnlocked;
+  elements.copySequenceButton.disabled = !hostUnlocked || !view.sequenceLength;
 
-  if ((currentState?.calledCount ?? 0) > 0) {
-    const nextLabel = hostUnlocked && currentState?.nextNumber ? ` Next in sequence: ${currentState.nextNumber}.` : "";
-    setFeedback(`Position ${currentState.calledCount} of ${currentState.sequenceLength}.${nextLabel}`);
+  if (busy) {
+    setFeedback("Searching for a validated random order...");
+  } else if (view.calledCount > 0) {
+    const nextLabel = hostUnlocked && view.nextNumber ? ` Next in sequence: ${view.nextNumber}.` : "";
+    setFeedback(`Position ${view.calledCount} of ${view.sequenceLength}.${nextLabel}`);
   } else if (hostUnlocked) {
-    setFeedback(`Host controls unlocked. Ready to start at position 1 of ${currentState?.sequenceLength ?? appData.maxNumber}.`);
+    const attemptText = currentState?.searchAttempts ? ` Found in ${currentState.searchAttempts} attempt${currentState.searchAttempts === 1 ? "" : "s"}.` : "";
+    setFeedback(`Validated random order ready.${attemptText} Each prize has one earliest winner and all five prize winners are different tickets.`);
   } else {
-    setFeedback("Viewer mode on this device. Current and past calls stay visible, but host controls are locked.");
+    setFeedback("Viewer mode on this device. Unlock with the code to call numbers or generate a fresh validated random order.");
   }
 
   renderCalledByCategory(calledSet);
   renderBoard(calledSet);
-  renderHistory(calledNumbers);
+  renderHistory(view.calledNumbers);
 }
 
 function renderCalledByCategory(calledSet) {

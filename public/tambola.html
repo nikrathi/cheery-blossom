@@ -4,14 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tambola Caller | Cherry Blossom Tea Party</title>
-    <script>
-      if (window.location.hostname === "nikrathi.github.io") {
-        const redirectUrl = new URL("https://tambola-caller-production.up.railway.app/tambola.html");
-        redirectUrl.search = window.location.search;
-        redirectUrl.hash = window.location.hash;
-        window.location.replace(redirectUrl.toString());
-      }
-    </script>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -22,7 +14,7 @@
           <a class="nav-link" href="./index.html">Home</a>
           <a class="nav-link" href="./lunch.html">Lunch</a>
           <a class="nav-link" href="./paint.html">Paint</a>
-          <a class="nav-link is-active" href="https://tambola-caller-production.up.railway.app/tambola.html">Tambola</a>
+          <a class="nav-link is-active" href="./tambola.html">Tambola</a>
         </nav>
       </header>
 
@@ -31,13 +23,13 @@
           <p class="eyebrow">Custom Tambola Caller</p>
           <h1>Run the game from your phone without losing the trail.</h1>
           <p class="lede">
-            The board stays visible for everyone on this device. Only the host controls need the access code.
+            This caller runs entirely on the page, and every new game searches for a fresh random order with one earliest winner per prize.
           </p>
         </div>
         <div class="status-strip">
           <div class="status-pill">
             <span class="status-label">Sequence</span>
-            <strong id="mode-label">Stored order</strong>
+            <strong id="mode-label">Validated random order</strong>
           </div>
           <div class="status-pill">
             <span class="status-label">Called</span>
@@ -99,8 +91,8 @@
           <div class="sequence-card">
             <div class="sequence-topline">
               <div>
-                <p class="panel-kicker">Sequence Source</p>
-                <h3>Private stored order</h3>
+                <p class="panel-kicker">Sequence Rule</p>
+                <h3>Validated random order</h3>
               </div>
             </div>
 
@@ -109,7 +101,7 @@
               <button id="copy-called-button" class="ghost-button" type="button">Copy Called List</button>
             </div>
             <p class="helper-text" id="sequence-feedback">
-              Stored caller order derived from <strong id="sequence-source-label">final_tambola_call_sequence.xlsx</strong>.
+              Random caller order searched until <strong id="sequence-source-label">each prize has one earliest winner</strong>.
             </p>
           </div>
         </section>

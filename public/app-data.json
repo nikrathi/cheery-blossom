@@ -1,7 +1,7 @@
 {
   "generatedFrom": "tambola_ticket_manifest.csv",
-  "sequenceDesignSource": "final_tambola_call_sequence.xlsx",
-  "sequenceMode": "server-backed-shared-state",
+  "sequenceDesignSource": "Validated random search over tambola_ticket_manifest.csv",
+  "sequenceMode": "validated-random-search",
   "ticketCount": 30,
   "maxNumber": 80,
   "categoryOrder": [
@@ -9,6 +9,5269 @@
     "Sakura Vibes",
     "Color Mood",
     "Japan Vibes"
+  ],
+  "prizeOrder": [
+    "Food Lovers",
+    "Sakura Vibes",
+    "Color Mood",
+    "Japan Vibes",
+    "Full House"
+  ],
+  "winnerPolicy": {
+    "uniquePrizeWinner": true,
+    "distinctWinningTickets": true
+  },
+  "tickets": [
+    {
+      "ticketId": 1,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 21,
+            "name": "Cheese Balls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 31,
+            "name": "Veg Spring Rolls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 48,
+            "name": "Aloo Tikki",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 55,
+            "name": "Paneer Tikka",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 33,
+            "name": "Floral Hairpin",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 39,
+            "name": "Cherry Dessert",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 47,
+            "name": "Floral Dress",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 56,
+            "name": "Bonsai Tree",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 1,
+            "name": "Sunshine Yellow",
+            "category": "Color Mood"
+          },
+          {
+            "number": 26,
+            "name": "Mint Green",
+            "category": "Color Mood"
+          },
+          {
+            "number": 73,
+            "name": "Lavender Purple",
+            "category": "Color Mood"
+          },
+          {
+            "number": 77,
+            "name": "Baby Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 34,
+            "name": "Samurai",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 37,
+            "name": "Matcha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 40,
+            "name": "Japanese Garden",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 76,
+            "name": "Geisha",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 1,
+          "name": "Sunshine Yellow",
+          "category": "Color Mood"
+        },
+        {
+          "number": 21,
+          "name": "Cheese Balls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 26,
+          "name": "Mint Green",
+          "category": "Color Mood"
+        },
+        {
+          "number": 31,
+          "name": "Veg Spring Rolls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 33,
+          "name": "Floral Hairpin",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 34,
+          "name": "Samurai",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 37,
+          "name": "Matcha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 39,
+          "name": "Cherry Dessert",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 40,
+          "name": "Japanese Garden",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 47,
+          "name": "Floral Dress",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 48,
+          "name": "Aloo Tikki",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 55,
+          "name": "Paneer Tikka",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 56,
+          "name": "Bonsai Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 73,
+          "name": "Lavender Purple",
+          "category": "Color Mood"
+        },
+        {
+          "number": 76,
+          "name": "Geisha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 77,
+          "name": "Baby Blue",
+          "category": "Color Mood"
+        }
+      ]
+    },
+    {
+      "ticketId": 2,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 31,
+            "name": "Veg Spring Rolls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 48,
+            "name": "Aloo Tikki",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 55,
+            "name": "Paneer Tikka",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 63,
+            "name": "Dabeli",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 6,
+            "name": "Cherry Blossom",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 18,
+            "name": "Petal Shower",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 33,
+            "name": "Floral Hairpin",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 56,
+            "name": "Bonsai Tree",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 4,
+            "name": "Teal",
+            "category": "Color Mood"
+          },
+          {
+            "number": 23,
+            "name": "Soft Beige",
+            "category": "Color Mood"
+          },
+          {
+            "number": 26,
+            "name": "Mint Green",
+            "category": "Color Mood"
+          },
+          {
+            "number": 50,
+            "name": "Sky Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 10,
+            "name": "Osaka",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 19,
+            "name": "Anime",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 25,
+            "name": "Shibuya Crossing",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 34,
+            "name": "Samurai",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 4,
+          "name": "Teal",
+          "category": "Color Mood"
+        },
+        {
+          "number": 6,
+          "name": "Cherry Blossom",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 10,
+          "name": "Osaka",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 18,
+          "name": "Petal Shower",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 19,
+          "name": "Anime",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 23,
+          "name": "Soft Beige",
+          "category": "Color Mood"
+        },
+        {
+          "number": 25,
+          "name": "Shibuya Crossing",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 26,
+          "name": "Mint Green",
+          "category": "Color Mood"
+        },
+        {
+          "number": 31,
+          "name": "Veg Spring Rolls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 33,
+          "name": "Floral Hairpin",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 34,
+          "name": "Samurai",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 48,
+          "name": "Aloo Tikki",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 50,
+          "name": "Sky Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 55,
+          "name": "Paneer Tikka",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 56,
+          "name": "Bonsai Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 63,
+          "name": "Dabeli",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 3,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 2,
+            "name": "Chole Bhature",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 36,
+            "name": "Samosa",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 70,
+            "name": "Masala Corn",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 72,
+            "name": "Hakka Noodles",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 33,
+            "name": "Floral Hairpin",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 62,
+            "name": "Garden Bridge",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 75,
+            "name": "Pink Kimono",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 79,
+            "name": "Blossom Path",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 23,
+            "name": "Soft Beige",
+            "category": "Color Mood"
+          },
+          {
+            "number": 26,
+            "name": "Mint Green",
+            "category": "Color Mood"
+          },
+          {
+            "number": 50,
+            "name": "Sky Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 59,
+            "name": "Lilac",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 19,
+            "name": "Anime",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 20,
+            "name": "Tokyo",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 38,
+            "name": "Pagoda",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 46,
+            "name": "Ramen",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 2,
+          "name": "Chole Bhature",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 19,
+          "name": "Anime",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 20,
+          "name": "Tokyo",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 23,
+          "name": "Soft Beige",
+          "category": "Color Mood"
+        },
+        {
+          "number": 26,
+          "name": "Mint Green",
+          "category": "Color Mood"
+        },
+        {
+          "number": 33,
+          "name": "Floral Hairpin",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 36,
+          "name": "Samosa",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 38,
+          "name": "Pagoda",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 46,
+          "name": "Ramen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 50,
+          "name": "Sky Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 59,
+          "name": "Lilac",
+          "category": "Color Mood"
+        },
+        {
+          "number": 62,
+          "name": "Garden Bridge",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 70,
+          "name": "Masala Corn",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 72,
+          "name": "Hakka Noodles",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 75,
+          "name": "Pink Kimono",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 79,
+          "name": "Blossom Path",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 4,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 11,
+            "name": "Falafel",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 28,
+            "name": "Dal Pakwan",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 44,
+            "name": "Moong Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 72,
+            "name": "Hakka Noodles",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 6,
+            "name": "Cherry Blossom",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 33,
+            "name": "Floral Hairpin",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 56,
+            "name": "Bonsai Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 68,
+            "name": "Zen Garden",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 1,
+            "name": "Sunshine Yellow",
+            "category": "Color Mood"
+          },
+          {
+            "number": 13,
+            "name": "Rose Gold",
+            "category": "Color Mood"
+          },
+          {
+            "number": 16,
+            "name": "Pastel Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 29,
+            "name": "Peach",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 19,
+            "name": "Anime",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 25,
+            "name": "Shibuya Crossing",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 57,
+            "name": "Mount Fuji",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 61,
+            "name": "Kyoto",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 1,
+          "name": "Sunshine Yellow",
+          "category": "Color Mood"
+        },
+        {
+          "number": 6,
+          "name": "Cherry Blossom",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 11,
+          "name": "Falafel",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 13,
+          "name": "Rose Gold",
+          "category": "Color Mood"
+        },
+        {
+          "number": 16,
+          "name": "Pastel Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 19,
+          "name": "Anime",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 25,
+          "name": "Shibuya Crossing",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 28,
+          "name": "Dal Pakwan",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 29,
+          "name": "Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 33,
+          "name": "Floral Hairpin",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 44,
+          "name": "Moong Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 56,
+          "name": "Bonsai Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 57,
+          "name": "Mount Fuji",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 61,
+          "name": "Kyoto",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 68,
+          "name": "Zen Garden",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 72,
+          "name": "Hakka Noodles",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 5,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 2,
+            "name": "Chole Bhature",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 36,
+            "name": "Samosa",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 44,
+            "name": "Moong Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 72,
+            "name": "Hakka Noodles",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 12,
+            "name": "Origami Crane",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 22,
+            "name": "Calligraphy Art",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 41,
+            "name": "Tea Ceremony",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 68,
+            "name": "Zen Garden",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 4,
+            "name": "Teal",
+            "category": "Color Mood"
+          },
+          {
+            "number": 13,
+            "name": "Rose Gold",
+            "category": "Color Mood"
+          },
+          {
+            "number": 42,
+            "name": "Aqua",
+            "category": "Color Mood"
+          },
+          {
+            "number": 66,
+            "name": "Dusty Pink",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 30,
+            "name": "Bamboo Forest",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 45,
+            "name": "Street market",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 52,
+            "name": "Onsen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 57,
+            "name": "Mount Fuji",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 2,
+          "name": "Chole Bhature",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 4,
+          "name": "Teal",
+          "category": "Color Mood"
+        },
+        {
+          "number": 12,
+          "name": "Origami Crane",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 13,
+          "name": "Rose Gold",
+          "category": "Color Mood"
+        },
+        {
+          "number": 22,
+          "name": "Calligraphy Art",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 30,
+          "name": "Bamboo Forest",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 36,
+          "name": "Samosa",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 41,
+          "name": "Tea Ceremony",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 42,
+          "name": "Aqua",
+          "category": "Color Mood"
+        },
+        {
+          "number": 44,
+          "name": "Moong Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 45,
+          "name": "Street market",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 52,
+          "name": "Onsen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 57,
+          "name": "Mount Fuji",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 66,
+          "name": "Dusty Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 68,
+          "name": "Zen Garden",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 72,
+          "name": "Hakka Noodles",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 6,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 5,
+            "name": "Papdi Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 9,
+            "name": "Dhokla",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 17,
+            "name": "Pani Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 70,
+            "name": "Masala Corn",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 3,
+            "name": "Silk Scarf",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 6,
+            "name": "Cherry Blossom",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 18,
+            "name": "Petal Shower",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 24,
+            "name": "Paper Lantern",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 1,
+            "name": "Sunshine Yellow",
+            "category": "Color Mood"
+          },
+          {
+            "number": 23,
+            "name": "Soft Beige",
+            "category": "Color Mood"
+          },
+          {
+            "number": 29,
+            "name": "Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 77,
+            "name": "Baby Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 15,
+            "name": "Sushi",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 30,
+            "name": "Bamboo Forest",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 40,
+            "name": "Japanese Garden",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 74,
+            "name": "Bullet Train",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 1,
+          "name": "Sunshine Yellow",
+          "category": "Color Mood"
+        },
+        {
+          "number": 3,
+          "name": "Silk Scarf",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 5,
+          "name": "Papdi Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 6,
+          "name": "Cherry Blossom",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 9,
+          "name": "Dhokla",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 15,
+          "name": "Sushi",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 17,
+          "name": "Pani Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 18,
+          "name": "Petal Shower",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 23,
+          "name": "Soft Beige",
+          "category": "Color Mood"
+        },
+        {
+          "number": 24,
+          "name": "Paper Lantern",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 29,
+          "name": "Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 30,
+          "name": "Bamboo Forest",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 40,
+          "name": "Japanese Garden",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 70,
+          "name": "Masala Corn",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 74,
+          "name": "Bullet Train",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 77,
+          "name": "Baby Blue",
+          "category": "Color Mood"
+        }
+      ]
+    },
+    {
+      "ticketId": 7,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 9,
+            "name": "Dhokla",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 36,
+            "name": "Samosa",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 51,
+            "name": "Pav Bhaji",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 67,
+            "name": "Sev Puri",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 6,
+            "name": "Cherry Blossom",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 12,
+            "name": "Origami Crane",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 62,
+            "name": "Garden Bridge",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 68,
+            "name": "Zen Garden",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 35,
+            "name": "Ivory White",
+            "category": "Color Mood"
+          },
+          {
+            "number": 50,
+            "name": "Sky Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 54,
+            "name": "Blush Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 73,
+            "name": "Lavender Purple",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 15,
+            "name": "Sushi",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 45,
+            "name": "Street market",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 74,
+            "name": "Bullet Train",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 78,
+            "name": "Sumo Wrestling",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 6,
+          "name": "Cherry Blossom",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 9,
+          "name": "Dhokla",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 12,
+          "name": "Origami Crane",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 15,
+          "name": "Sushi",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 35,
+          "name": "Ivory White",
+          "category": "Color Mood"
+        },
+        {
+          "number": 36,
+          "name": "Samosa",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 45,
+          "name": "Street market",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 50,
+          "name": "Sky Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 51,
+          "name": "Pav Bhaji",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 54,
+          "name": "Blush Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 62,
+          "name": "Garden Bridge",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 67,
+          "name": "Sev Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 68,
+          "name": "Zen Garden",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 73,
+          "name": "Lavender Purple",
+          "category": "Color Mood"
+        },
+        {
+          "number": 74,
+          "name": "Bullet Train",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 78,
+          "name": "Sumo Wrestling",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 8,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 5,
+            "name": "Papdi Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 28,
+            "name": "Dal Pakwan",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 48,
+            "name": "Aloo Tikki",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 51,
+            "name": "Pav Bhaji",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 27,
+            "name": "Spring Breeze",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 41,
+            "name": "Tea Ceremony",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 56,
+            "name": "Bonsai Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 58,
+            "name": "Sakura Tree",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 4,
+            "name": "Teal",
+            "category": "Color Mood"
+          },
+          {
+            "number": 26,
+            "name": "Mint Green",
+            "category": "Color Mood"
+          },
+          {
+            "number": 35,
+            "name": "Ivory White",
+            "category": "Color Mood"
+          },
+          {
+            "number": 49,
+            "name": "Champagne",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 20,
+            "name": "Tokyo",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 38,
+            "name": "Pagoda",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 43,
+            "name": "Cherry Shrine",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 76,
+            "name": "Geisha",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 4,
+          "name": "Teal",
+          "category": "Color Mood"
+        },
+        {
+          "number": 5,
+          "name": "Papdi Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 20,
+          "name": "Tokyo",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 26,
+          "name": "Mint Green",
+          "category": "Color Mood"
+        },
+        {
+          "number": 27,
+          "name": "Spring Breeze",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 28,
+          "name": "Dal Pakwan",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 35,
+          "name": "Ivory White",
+          "category": "Color Mood"
+        },
+        {
+          "number": 38,
+          "name": "Pagoda",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 41,
+          "name": "Tea Ceremony",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 43,
+          "name": "Cherry Shrine",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 48,
+          "name": "Aloo Tikki",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 49,
+          "name": "Champagne",
+          "category": "Color Mood"
+        },
+        {
+          "number": 51,
+          "name": "Pav Bhaji",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 56,
+          "name": "Bonsai Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 58,
+          "name": "Sakura Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 76,
+          "name": "Geisha",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 9,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 28,
+            "name": "Dal Pakwan",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 55,
+            "name": "Paneer Tikka",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 63,
+            "name": "Dabeli",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 67,
+            "name": "Sev Puri",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 12,
+            "name": "Origami Crane",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 24,
+            "name": "Paper Lantern",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 47,
+            "name": "Floral Dress",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 75,
+            "name": "Pink Kimono",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 7,
+            "name": "Light Grey",
+            "category": "Color Mood"
+          },
+          {
+            "number": 32,
+            "name": "Frost Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 54,
+            "name": "Blush Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 59,
+            "name": "Lilac",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 37,
+            "name": "Matcha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 40,
+            "name": "Japanese Garden",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 46,
+            "name": "Ramen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 52,
+            "name": "Onsen",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 7,
+          "name": "Light Grey",
+          "category": "Color Mood"
+        },
+        {
+          "number": 12,
+          "name": "Origami Crane",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 24,
+          "name": "Paper Lantern",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 28,
+          "name": "Dal Pakwan",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 32,
+          "name": "Frost Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 37,
+          "name": "Matcha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 40,
+          "name": "Japanese Garden",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 46,
+          "name": "Ramen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 47,
+          "name": "Floral Dress",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 52,
+          "name": "Onsen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 54,
+          "name": "Blush Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 55,
+          "name": "Paneer Tikka",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 59,
+          "name": "Lilac",
+          "category": "Color Mood"
+        },
+        {
+          "number": 63,
+          "name": "Dabeli",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 67,
+          "name": "Sev Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 75,
+          "name": "Pink Kimono",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 10,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 5,
+            "name": "Papdi Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 60,
+            "name": "Nachos",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 67,
+            "name": "Sev Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 70,
+            "name": "Masala Corn",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 12,
+            "name": "Origami Crane",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 39,
+            "name": "Cherry Dessert",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 58,
+            "name": "Sakura Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 65,
+            "name": "Japanese Fan",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 13,
+            "name": "Rose Gold",
+            "category": "Color Mood"
+          },
+          {
+            "number": 29,
+            "name": "Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 35,
+            "name": "Ivory White",
+            "category": "Color Mood"
+          },
+          {
+            "number": 66,
+            "name": "Dusty Pink",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 10,
+            "name": "Osaka",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 25,
+            "name": "Shibuya Crossing",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 57,
+            "name": "Mount Fuji",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 69,
+            "name": "Torii Gate",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 5,
+          "name": "Papdi Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 10,
+          "name": "Osaka",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 12,
+          "name": "Origami Crane",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 13,
+          "name": "Rose Gold",
+          "category": "Color Mood"
+        },
+        {
+          "number": 25,
+          "name": "Shibuya Crossing",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 29,
+          "name": "Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 35,
+          "name": "Ivory White",
+          "category": "Color Mood"
+        },
+        {
+          "number": 39,
+          "name": "Cherry Dessert",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 57,
+          "name": "Mount Fuji",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 58,
+          "name": "Sakura Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 60,
+          "name": "Nachos",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 65,
+          "name": "Japanese Fan",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 66,
+          "name": "Dusty Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 67,
+          "name": "Sev Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 69,
+          "name": "Torii Gate",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 70,
+          "name": "Masala Corn",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 11,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 5,
+            "name": "Papdi Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 9,
+            "name": "Dhokla",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 11,
+            "name": "Falafel",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 31,
+            "name": "Veg Spring Rolls",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 8,
+            "name": "Pink Sunset",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 22,
+            "name": "Calligraphy Art",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 53,
+            "name": "Hanami Picnic",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 65,
+            "name": "Japanese Fan",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 32,
+            "name": "Frost Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 35,
+            "name": "Ivory White",
+            "category": "Color Mood"
+          },
+          {
+            "number": 54,
+            "name": "Blush Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 66,
+            "name": "Dusty Pink",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 15,
+            "name": "Sushi",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 43,
+            "name": "Cherry Shrine",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 52,
+            "name": "Onsen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 74,
+            "name": "Bullet Train",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 5,
+          "name": "Papdi Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 8,
+          "name": "Pink Sunset",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 9,
+          "name": "Dhokla",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 11,
+          "name": "Falafel",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 15,
+          "name": "Sushi",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 22,
+          "name": "Calligraphy Art",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 31,
+          "name": "Veg Spring Rolls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 32,
+          "name": "Frost Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 35,
+          "name": "Ivory White",
+          "category": "Color Mood"
+        },
+        {
+          "number": 43,
+          "name": "Cherry Shrine",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 52,
+          "name": "Onsen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 53,
+          "name": "Hanami Picnic",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 54,
+          "name": "Blush Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 65,
+          "name": "Japanese Fan",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 66,
+          "name": "Dusty Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 74,
+          "name": "Bullet Train",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 12,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 2,
+            "name": "Chole Bhature",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 9,
+            "name": "Dhokla",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 51,
+            "name": "Pav Bhaji",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 80,
+            "name": "Kachori",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 8,
+            "name": "Pink Sunset",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 18,
+            "name": "Petal Shower",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 58,
+            "name": "Sakura Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 62,
+            "name": "Garden Bridge",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 1,
+            "name": "Sunshine Yellow",
+            "category": "Color Mood"
+          },
+          {
+            "number": 13,
+            "name": "Rose Gold",
+            "category": "Color Mood"
+          },
+          {
+            "number": 29,
+            "name": "Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 64,
+            "name": "Coral Peach",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 15,
+            "name": "Sushi",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 20,
+            "name": "Tokyo",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 61,
+            "name": "Kyoto",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 74,
+            "name": "Bullet Train",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 1,
+          "name": "Sunshine Yellow",
+          "category": "Color Mood"
+        },
+        {
+          "number": 2,
+          "name": "Chole Bhature",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 8,
+          "name": "Pink Sunset",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 9,
+          "name": "Dhokla",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 13,
+          "name": "Rose Gold",
+          "category": "Color Mood"
+        },
+        {
+          "number": 15,
+          "name": "Sushi",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 18,
+          "name": "Petal Shower",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 20,
+          "name": "Tokyo",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 29,
+          "name": "Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 51,
+          "name": "Pav Bhaji",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 58,
+          "name": "Sakura Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 61,
+          "name": "Kyoto",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 62,
+          "name": "Garden Bridge",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 64,
+          "name": "Coral Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 74,
+          "name": "Bullet Train",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 80,
+          "name": "Kachori",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 13,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 21,
+            "name": "Cheese Balls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 36,
+            "name": "Samosa",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 48,
+            "name": "Aloo Tikki",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 72,
+            "name": "Hakka Noodles",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 3,
+            "name": "Silk Scarf",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 22,
+            "name": "Calligraphy Art",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 41,
+            "name": "Tea Ceremony",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 47,
+            "name": "Floral Dress",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 50,
+            "name": "Sky Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 71,
+            "name": "Cream",
+            "category": "Color Mood"
+          },
+          {
+            "number": 73,
+            "name": "Lavender Purple",
+            "category": "Color Mood"
+          },
+          {
+            "number": 77,
+            "name": "Baby Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 10,
+            "name": "Osaka",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 25,
+            "name": "Shibuya Crossing",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 46,
+            "name": "Ramen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 52,
+            "name": "Onsen",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 3,
+          "name": "Silk Scarf",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 10,
+          "name": "Osaka",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 21,
+          "name": "Cheese Balls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 22,
+          "name": "Calligraphy Art",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 25,
+          "name": "Shibuya Crossing",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 36,
+          "name": "Samosa",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 41,
+          "name": "Tea Ceremony",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 46,
+          "name": "Ramen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 47,
+          "name": "Floral Dress",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 48,
+          "name": "Aloo Tikki",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 50,
+          "name": "Sky Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 52,
+          "name": "Onsen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 71,
+          "name": "Cream",
+          "category": "Color Mood"
+        },
+        {
+          "number": 72,
+          "name": "Hakka Noodles",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 73,
+          "name": "Lavender Purple",
+          "category": "Color Mood"
+        },
+        {
+          "number": 77,
+          "name": "Baby Blue",
+          "category": "Color Mood"
+        }
+      ]
+    },
+    {
+      "ticketId": 14,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 2,
+            "name": "Chole Bhature",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 17,
+            "name": "Pani Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 21,
+            "name": "Cheese Balls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 31,
+            "name": "Veg Spring Rolls",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 22,
+            "name": "Calligraphy Art",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 27,
+            "name": "Spring Breeze",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 41,
+            "name": "Tea Ceremony",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 79,
+            "name": "Blossom Path",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 7,
+            "name": "Light Grey",
+            "category": "Color Mood"
+          },
+          {
+            "number": 16,
+            "name": "Pastel Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 26,
+            "name": "Mint Green",
+            "category": "Color Mood"
+          },
+          {
+            "number": 59,
+            "name": "Lilac",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 25,
+            "name": "Shibuya Crossing",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 43,
+            "name": "Cherry Shrine",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 45,
+            "name": "Street market",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 78,
+            "name": "Sumo Wrestling",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 2,
+          "name": "Chole Bhature",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 7,
+          "name": "Light Grey",
+          "category": "Color Mood"
+        },
+        {
+          "number": 16,
+          "name": "Pastel Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 17,
+          "name": "Pani Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 21,
+          "name": "Cheese Balls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 22,
+          "name": "Calligraphy Art",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 25,
+          "name": "Shibuya Crossing",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 26,
+          "name": "Mint Green",
+          "category": "Color Mood"
+        },
+        {
+          "number": 27,
+          "name": "Spring Breeze",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 31,
+          "name": "Veg Spring Rolls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 41,
+          "name": "Tea Ceremony",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 43,
+          "name": "Cherry Shrine",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 45,
+          "name": "Street market",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 59,
+          "name": "Lilac",
+          "category": "Color Mood"
+        },
+        {
+          "number": 78,
+          "name": "Sumo Wrestling",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 79,
+          "name": "Blossom Path",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 15,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 5,
+            "name": "Papdi Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 14,
+            "name": "Bhel Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 48,
+            "name": "Aloo Tikki",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 60,
+            "name": "Nachos",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 22,
+            "name": "Calligraphy Art",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 33,
+            "name": "Floral Hairpin",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 56,
+            "name": "Bonsai Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 68,
+            "name": "Zen Garden",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 1,
+            "name": "Sunshine Yellow",
+            "category": "Color Mood"
+          },
+          {
+            "number": 7,
+            "name": "Light Grey",
+            "category": "Color Mood"
+          },
+          {
+            "number": 42,
+            "name": "Aqua",
+            "category": "Color Mood"
+          },
+          {
+            "number": 66,
+            "name": "Dusty Pink",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 10,
+            "name": "Osaka",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 20,
+            "name": "Tokyo",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 40,
+            "name": "Japanese Garden",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 78,
+            "name": "Sumo Wrestling",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 1,
+          "name": "Sunshine Yellow",
+          "category": "Color Mood"
+        },
+        {
+          "number": 5,
+          "name": "Papdi Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 7,
+          "name": "Light Grey",
+          "category": "Color Mood"
+        },
+        {
+          "number": 10,
+          "name": "Osaka",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 14,
+          "name": "Bhel Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 20,
+          "name": "Tokyo",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 22,
+          "name": "Calligraphy Art",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 33,
+          "name": "Floral Hairpin",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 40,
+          "name": "Japanese Garden",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 42,
+          "name": "Aqua",
+          "category": "Color Mood"
+        },
+        {
+          "number": 48,
+          "name": "Aloo Tikki",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 56,
+          "name": "Bonsai Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 60,
+          "name": "Nachos",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 66,
+          "name": "Dusty Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 68,
+          "name": "Zen Garden",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 78,
+          "name": "Sumo Wrestling",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 16,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 55,
+            "name": "Paneer Tikka",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 63,
+            "name": "Dabeli",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 67,
+            "name": "Sev Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 70,
+            "name": "Masala Corn",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 3,
+            "name": "Silk Scarf",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 8,
+            "name": "Pink Sunset",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 18,
+            "name": "Petal Shower",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 53,
+            "name": "Hanami Picnic",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 7,
+            "name": "Light Grey",
+            "category": "Color Mood"
+          },
+          {
+            "number": 42,
+            "name": "Aqua",
+            "category": "Color Mood"
+          },
+          {
+            "number": 59,
+            "name": "Lilac",
+            "category": "Color Mood"
+          },
+          {
+            "number": 66,
+            "name": "Dusty Pink",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 15,
+            "name": "Sushi",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 38,
+            "name": "Pagoda",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 57,
+            "name": "Mount Fuji",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 61,
+            "name": "Kyoto",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 3,
+          "name": "Silk Scarf",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 7,
+          "name": "Light Grey",
+          "category": "Color Mood"
+        },
+        {
+          "number": 8,
+          "name": "Pink Sunset",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 15,
+          "name": "Sushi",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 18,
+          "name": "Petal Shower",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 38,
+          "name": "Pagoda",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 42,
+          "name": "Aqua",
+          "category": "Color Mood"
+        },
+        {
+          "number": 53,
+          "name": "Hanami Picnic",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 55,
+          "name": "Paneer Tikka",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 57,
+          "name": "Mount Fuji",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 59,
+          "name": "Lilac",
+          "category": "Color Mood"
+        },
+        {
+          "number": 61,
+          "name": "Kyoto",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 63,
+          "name": "Dabeli",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 66,
+          "name": "Dusty Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 67,
+          "name": "Sev Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 70,
+          "name": "Masala Corn",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 17,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 17,
+            "name": "Pani Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 28,
+            "name": "Dal Pakwan",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 44,
+            "name": "Moong Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 63,
+            "name": "Dabeli",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 27,
+            "name": "Spring Breeze",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 47,
+            "name": "Floral Dress",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 62,
+            "name": "Garden Bridge",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 79,
+            "name": "Blossom Path",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 23,
+            "name": "Soft Beige",
+            "category": "Color Mood"
+          },
+          {
+            "number": 26,
+            "name": "Mint Green",
+            "category": "Color Mood"
+          },
+          {
+            "number": 49,
+            "name": "Champagne",
+            "category": "Color Mood"
+          },
+          {
+            "number": 64,
+            "name": "Coral Peach",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 19,
+            "name": "Anime",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 20,
+            "name": "Tokyo",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 37,
+            "name": "Matcha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 40,
+            "name": "Japanese Garden",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 17,
+          "name": "Pani Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 19,
+          "name": "Anime",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 20,
+          "name": "Tokyo",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 23,
+          "name": "Soft Beige",
+          "category": "Color Mood"
+        },
+        {
+          "number": 26,
+          "name": "Mint Green",
+          "category": "Color Mood"
+        },
+        {
+          "number": 27,
+          "name": "Spring Breeze",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 28,
+          "name": "Dal Pakwan",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 37,
+          "name": "Matcha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 40,
+          "name": "Japanese Garden",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 44,
+          "name": "Moong Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 47,
+          "name": "Floral Dress",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 49,
+          "name": "Champagne",
+          "category": "Color Mood"
+        },
+        {
+          "number": 62,
+          "name": "Garden Bridge",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 63,
+          "name": "Dabeli",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 64,
+          "name": "Coral Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 79,
+          "name": "Blossom Path",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 18,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 9,
+            "name": "Dhokla",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 11,
+            "name": "Falafel",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 17,
+            "name": "Pani Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 21,
+            "name": "Cheese Balls",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 6,
+            "name": "Cherry Blossom",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 39,
+            "name": "Cherry Dessert",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 41,
+            "name": "Tea Ceremony",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 53,
+            "name": "Hanami Picnic",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 4,
+            "name": "Teal",
+            "category": "Color Mood"
+          },
+          {
+            "number": 13,
+            "name": "Rose Gold",
+            "category": "Color Mood"
+          },
+          {
+            "number": 32,
+            "name": "Frost Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 59,
+            "name": "Lilac",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 30,
+            "name": "Bamboo Forest",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 34,
+            "name": "Samurai",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 45,
+            "name": "Street market",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 78,
+            "name": "Sumo Wrestling",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 4,
+          "name": "Teal",
+          "category": "Color Mood"
+        },
+        {
+          "number": 6,
+          "name": "Cherry Blossom",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 9,
+          "name": "Dhokla",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 11,
+          "name": "Falafel",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 13,
+          "name": "Rose Gold",
+          "category": "Color Mood"
+        },
+        {
+          "number": 17,
+          "name": "Pani Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 21,
+          "name": "Cheese Balls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 30,
+          "name": "Bamboo Forest",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 32,
+          "name": "Frost Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 34,
+          "name": "Samurai",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 39,
+          "name": "Cherry Dessert",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 41,
+          "name": "Tea Ceremony",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 45,
+          "name": "Street market",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 53,
+          "name": "Hanami Picnic",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 59,
+          "name": "Lilac",
+          "category": "Color Mood"
+        },
+        {
+          "number": 78,
+          "name": "Sumo Wrestling",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 19,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 14,
+            "name": "Bhel Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 17,
+            "name": "Pani Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 21,
+            "name": "Cheese Balls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 36,
+            "name": "Samosa",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 8,
+            "name": "Pink Sunset",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 39,
+            "name": "Cherry Dessert",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 53,
+            "name": "Hanami Picnic",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 75,
+            "name": "Pink Kimono",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 23,
+            "name": "Soft Beige",
+            "category": "Color Mood"
+          },
+          {
+            "number": 32,
+            "name": "Frost Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 54,
+            "name": "Blush Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 64,
+            "name": "Coral Peach",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 25,
+            "name": "Shibuya Crossing",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 34,
+            "name": "Samurai",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 38,
+            "name": "Pagoda",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 69,
+            "name": "Torii Gate",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 8,
+          "name": "Pink Sunset",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 14,
+          "name": "Bhel Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 17,
+          "name": "Pani Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 21,
+          "name": "Cheese Balls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 23,
+          "name": "Soft Beige",
+          "category": "Color Mood"
+        },
+        {
+          "number": 25,
+          "name": "Shibuya Crossing",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 32,
+          "name": "Frost Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 34,
+          "name": "Samurai",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 36,
+          "name": "Samosa",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 38,
+          "name": "Pagoda",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 39,
+          "name": "Cherry Dessert",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 53,
+          "name": "Hanami Picnic",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 54,
+          "name": "Blush Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 64,
+          "name": "Coral Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 69,
+          "name": "Torii Gate",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 75,
+          "name": "Pink Kimono",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 20,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 11,
+            "name": "Falafel",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 14,
+            "name": "Bhel Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 31,
+            "name": "Veg Spring Rolls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 36,
+            "name": "Samosa",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 24,
+            "name": "Paper Lantern",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 33,
+            "name": "Floral Hairpin",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 47,
+            "name": "Floral Dress",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 75,
+            "name": "Pink Kimono",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 7,
+            "name": "Light Grey",
+            "category": "Color Mood"
+          },
+          {
+            "number": 42,
+            "name": "Aqua",
+            "category": "Color Mood"
+          },
+          {
+            "number": 71,
+            "name": "Cream",
+            "category": "Color Mood"
+          },
+          {
+            "number": 73,
+            "name": "Lavender Purple",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 19,
+            "name": "Anime",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 69,
+            "name": "Torii Gate",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 74,
+            "name": "Bullet Train",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 76,
+            "name": "Geisha",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 7,
+          "name": "Light Grey",
+          "category": "Color Mood"
+        },
+        {
+          "number": 11,
+          "name": "Falafel",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 14,
+          "name": "Bhel Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 19,
+          "name": "Anime",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 24,
+          "name": "Paper Lantern",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 31,
+          "name": "Veg Spring Rolls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 33,
+          "name": "Floral Hairpin",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 36,
+          "name": "Samosa",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 42,
+          "name": "Aqua",
+          "category": "Color Mood"
+        },
+        {
+          "number": 47,
+          "name": "Floral Dress",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 69,
+          "name": "Torii Gate",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 71,
+          "name": "Cream",
+          "category": "Color Mood"
+        },
+        {
+          "number": 73,
+          "name": "Lavender Purple",
+          "category": "Color Mood"
+        },
+        {
+          "number": 74,
+          "name": "Bullet Train",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 75,
+          "name": "Pink Kimono",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 76,
+          "name": "Geisha",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 21,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 9,
+            "name": "Dhokla",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 17,
+            "name": "Pani Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 21,
+            "name": "Cheese Balls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 80,
+            "name": "Kachori",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 53,
+            "name": "Hanami Picnic",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 58,
+            "name": "Sakura Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 62,
+            "name": "Garden Bridge",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 75,
+            "name": "Pink Kimono",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 4,
+            "name": "Teal",
+            "category": "Color Mood"
+          },
+          {
+            "number": 16,
+            "name": "Pastel Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 42,
+            "name": "Aqua",
+            "category": "Color Mood"
+          },
+          {
+            "number": 49,
+            "name": "Champagne",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 30,
+            "name": "Bamboo Forest",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 34,
+            "name": "Samurai",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 45,
+            "name": "Street market",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 76,
+            "name": "Geisha",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 4,
+          "name": "Teal",
+          "category": "Color Mood"
+        },
+        {
+          "number": 9,
+          "name": "Dhokla",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 16,
+          "name": "Pastel Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 17,
+          "name": "Pani Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 21,
+          "name": "Cheese Balls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 30,
+          "name": "Bamboo Forest",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 34,
+          "name": "Samurai",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 42,
+          "name": "Aqua",
+          "category": "Color Mood"
+        },
+        {
+          "number": 45,
+          "name": "Street market",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 49,
+          "name": "Champagne",
+          "category": "Color Mood"
+        },
+        {
+          "number": 53,
+          "name": "Hanami Picnic",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 58,
+          "name": "Sakura Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 62,
+          "name": "Garden Bridge",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 75,
+          "name": "Pink Kimono",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 76,
+          "name": "Geisha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 80,
+          "name": "Kachori",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 22,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 2,
+            "name": "Chole Bhature",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 44,
+            "name": "Moong Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 60,
+            "name": "Nachos",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 72,
+            "name": "Hakka Noodles",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 3,
+            "name": "Silk Scarf",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 27,
+            "name": "Spring Breeze",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 65,
+            "name": "Japanese Fan",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 79,
+            "name": "Blossom Path",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 7,
+            "name": "Light Grey",
+            "category": "Color Mood"
+          },
+          {
+            "number": 32,
+            "name": "Frost Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 35,
+            "name": "Ivory White",
+            "category": "Color Mood"
+          },
+          {
+            "number": 66,
+            "name": "Dusty Pink",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 15,
+            "name": "Sushi",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 20,
+            "name": "Tokyo",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 38,
+            "name": "Pagoda",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 57,
+            "name": "Mount Fuji",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 2,
+          "name": "Chole Bhature",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 3,
+          "name": "Silk Scarf",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 7,
+          "name": "Light Grey",
+          "category": "Color Mood"
+        },
+        {
+          "number": 15,
+          "name": "Sushi",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 20,
+          "name": "Tokyo",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 27,
+          "name": "Spring Breeze",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 32,
+          "name": "Frost Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 35,
+          "name": "Ivory White",
+          "category": "Color Mood"
+        },
+        {
+          "number": 38,
+          "name": "Pagoda",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 44,
+          "name": "Moong Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 57,
+          "name": "Mount Fuji",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 60,
+          "name": "Nachos",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 65,
+          "name": "Japanese Fan",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 66,
+          "name": "Dusty Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 72,
+          "name": "Hakka Noodles",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 79,
+          "name": "Blossom Path",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 23,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 11,
+            "name": "Falafel",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 48,
+            "name": "Aloo Tikki",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 72,
+            "name": "Hakka Noodles",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 80,
+            "name": "Kachori",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 27,
+            "name": "Spring Breeze",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 53,
+            "name": "Hanami Picnic",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 62,
+            "name": "Garden Bridge",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 68,
+            "name": "Zen Garden",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 1,
+            "name": "Sunshine Yellow",
+            "category": "Color Mood"
+          },
+          {
+            "number": 42,
+            "name": "Aqua",
+            "category": "Color Mood"
+          },
+          {
+            "number": 64,
+            "name": "Coral Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 73,
+            "name": "Lavender Purple",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 37,
+            "name": "Matcha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 38,
+            "name": "Pagoda",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 46,
+            "name": "Ramen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 69,
+            "name": "Torii Gate",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 1,
+          "name": "Sunshine Yellow",
+          "category": "Color Mood"
+        },
+        {
+          "number": 11,
+          "name": "Falafel",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 27,
+          "name": "Spring Breeze",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 37,
+          "name": "Matcha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 38,
+          "name": "Pagoda",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 42,
+          "name": "Aqua",
+          "category": "Color Mood"
+        },
+        {
+          "number": 46,
+          "name": "Ramen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 48,
+          "name": "Aloo Tikki",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 53,
+          "name": "Hanami Picnic",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 62,
+          "name": "Garden Bridge",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 64,
+          "name": "Coral Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 68,
+          "name": "Zen Garden",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 69,
+          "name": "Torii Gate",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 72,
+          "name": "Hakka Noodles",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 73,
+          "name": "Lavender Purple",
+          "category": "Color Mood"
+        },
+        {
+          "number": 80,
+          "name": "Kachori",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 24,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 5,
+            "name": "Papdi Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 28,
+            "name": "Dal Pakwan",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 60,
+            "name": "Nachos",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 63,
+            "name": "Dabeli",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 12,
+            "name": "Origami Crane",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 41,
+            "name": "Tea Ceremony",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 58,
+            "name": "Sakura Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 65,
+            "name": "Japanese Fan",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 23,
+            "name": "Soft Beige",
+            "category": "Color Mood"
+          },
+          {
+            "number": 50,
+            "name": "Sky Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 54,
+            "name": "Blush Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 59,
+            "name": "Lilac",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 45,
+            "name": "Street market",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 52,
+            "name": "Onsen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 61,
+            "name": "Kyoto",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 78,
+            "name": "Sumo Wrestling",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 5,
+          "name": "Papdi Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 12,
+          "name": "Origami Crane",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 23,
+          "name": "Soft Beige",
+          "category": "Color Mood"
+        },
+        {
+          "number": 28,
+          "name": "Dal Pakwan",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 41,
+          "name": "Tea Ceremony",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 45,
+          "name": "Street market",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 50,
+          "name": "Sky Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 52,
+          "name": "Onsen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 54,
+          "name": "Blush Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 58,
+          "name": "Sakura Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 59,
+          "name": "Lilac",
+          "category": "Color Mood"
+        },
+        {
+          "number": 60,
+          "name": "Nachos",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 61,
+          "name": "Kyoto",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 63,
+          "name": "Dabeli",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 65,
+          "name": "Japanese Fan",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 78,
+          "name": "Sumo Wrestling",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 25,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 2,
+            "name": "Chole Bhature",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 51,
+            "name": "Pav Bhaji",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 55,
+            "name": "Paneer Tikka",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 60,
+            "name": "Nachos",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 8,
+            "name": "Pink Sunset",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 24,
+            "name": "Paper Lantern",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 75,
+            "name": "Pink Kimono",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 79,
+            "name": "Blossom Path",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 29,
+            "name": "Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 35,
+            "name": "Ivory White",
+            "category": "Color Mood"
+          },
+          {
+            "number": 71,
+            "name": "Cream",
+            "category": "Color Mood"
+          },
+          {
+            "number": 73,
+            "name": "Lavender Purple",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 43,
+            "name": "Cherry Shrine",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 69,
+            "name": "Torii Gate",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 74,
+            "name": "Bullet Train",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 76,
+            "name": "Geisha",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 2,
+          "name": "Chole Bhature",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 8,
+          "name": "Pink Sunset",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 24,
+          "name": "Paper Lantern",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 29,
+          "name": "Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 35,
+          "name": "Ivory White",
+          "category": "Color Mood"
+        },
+        {
+          "number": 43,
+          "name": "Cherry Shrine",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 51,
+          "name": "Pav Bhaji",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 55,
+          "name": "Paneer Tikka",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 60,
+          "name": "Nachos",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 69,
+          "name": "Torii Gate",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 71,
+          "name": "Cream",
+          "category": "Color Mood"
+        },
+        {
+          "number": 73,
+          "name": "Lavender Purple",
+          "category": "Color Mood"
+        },
+        {
+          "number": 74,
+          "name": "Bullet Train",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 75,
+          "name": "Pink Kimono",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 76,
+          "name": "Geisha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 79,
+          "name": "Blossom Path",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 26,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 14,
+            "name": "Bhel Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 67,
+            "name": "Sev Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 70,
+            "name": "Masala Corn",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 80,
+            "name": "Kachori",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 6,
+            "name": "Cherry Blossom",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 12,
+            "name": "Origami Crane",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 24,
+            "name": "Paper Lantern",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 39,
+            "name": "Cherry Dessert",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 32,
+            "name": "Frost Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 49,
+            "name": "Champagne",
+            "category": "Color Mood"
+          },
+          {
+            "number": 64,
+            "name": "Coral Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 71,
+            "name": "Cream",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 10,
+            "name": "Osaka",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 30,
+            "name": "Bamboo Forest",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 34,
+            "name": "Samurai",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 61,
+            "name": "Kyoto",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 6,
+          "name": "Cherry Blossom",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 10,
+          "name": "Osaka",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 12,
+          "name": "Origami Crane",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 14,
+          "name": "Bhel Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 24,
+          "name": "Paper Lantern",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 30,
+          "name": "Bamboo Forest",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 32,
+          "name": "Frost Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 34,
+          "name": "Samurai",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 39,
+          "name": "Cherry Dessert",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 49,
+          "name": "Champagne",
+          "category": "Color Mood"
+        },
+        {
+          "number": 61,
+          "name": "Kyoto",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 64,
+          "name": "Coral Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 67,
+          "name": "Sev Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 70,
+          "name": "Masala Corn",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 71,
+          "name": "Cream",
+          "category": "Color Mood"
+        },
+        {
+          "number": 80,
+          "name": "Kachori",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 27,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 14,
+            "name": "Bhel Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 44,
+            "name": "Moong Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 55,
+            "name": "Paneer Tikka",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 70,
+            "name": "Masala Corn",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 39,
+            "name": "Cherry Dessert",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 56,
+            "name": "Bonsai Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 58,
+            "name": "Sakura Tree",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 65,
+            "name": "Japanese Fan",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 4,
+            "name": "Teal",
+            "category": "Color Mood"
+          },
+          {
+            "number": 16,
+            "name": "Pastel Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 49,
+            "name": "Champagne",
+            "category": "Color Mood"
+          },
+          {
+            "number": 77,
+            "name": "Baby Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 37,
+            "name": "Matcha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 43,
+            "name": "Cherry Shrine",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 76,
+            "name": "Geisha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 78,
+            "name": "Sumo Wrestling",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 4,
+          "name": "Teal",
+          "category": "Color Mood"
+        },
+        {
+          "number": 14,
+          "name": "Bhel Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 16,
+          "name": "Pastel Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 37,
+          "name": "Matcha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 39,
+          "name": "Cherry Dessert",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 43,
+          "name": "Cherry Shrine",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 44,
+          "name": "Moong Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 49,
+          "name": "Champagne",
+          "category": "Color Mood"
+        },
+        {
+          "number": 55,
+          "name": "Paneer Tikka",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 56,
+          "name": "Bonsai Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 58,
+          "name": "Sakura Tree",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 65,
+          "name": "Japanese Fan",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 70,
+          "name": "Masala Corn",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 76,
+          "name": "Geisha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 77,
+          "name": "Baby Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 78,
+          "name": "Sumo Wrestling",
+          "category": "Japan Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 28,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 31,
+            "name": "Veg Spring Rolls",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 44,
+            "name": "Moong Chaat",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 51,
+            "name": "Pav Bhaji",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 80,
+            "name": "Kachori",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 3,
+            "name": "Silk Scarf",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 18,
+            "name": "Petal Shower",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 47,
+            "name": "Floral Dress",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 68,
+            "name": "Zen Garden",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 16,
+            "name": "Pastel Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 50,
+            "name": "Sky Blue",
+            "category": "Color Mood"
+          },
+          {
+            "number": 54,
+            "name": "Blush Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 77,
+            "name": "Baby Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 10,
+            "name": "Osaka",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 19,
+            "name": "Anime",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 40,
+            "name": "Japanese Garden",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 46,
+            "name": "Ramen",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 3,
+          "name": "Silk Scarf",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 10,
+          "name": "Osaka",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 16,
+          "name": "Pastel Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 18,
+          "name": "Petal Shower",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 19,
+          "name": "Anime",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 31,
+          "name": "Veg Spring Rolls",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 40,
+          "name": "Japanese Garden",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 44,
+          "name": "Moong Chaat",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 46,
+          "name": "Ramen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 47,
+          "name": "Floral Dress",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 50,
+          "name": "Sky Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 51,
+          "name": "Pav Bhaji",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 54,
+          "name": "Blush Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 68,
+          "name": "Zen Garden",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 77,
+          "name": "Baby Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 80,
+          "name": "Kachori",
+          "category": "Food Lovers"
+        }
+      ]
+    },
+    {
+      "ticketId": 29,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 11,
+            "name": "Falafel",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 14,
+            "name": "Bhel Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 28,
+            "name": "Dal Pakwan",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 60,
+            "name": "Nachos",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 8,
+            "name": "Pink Sunset",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 27,
+            "name": "Spring Breeze",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 65,
+            "name": "Japanese Fan",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 79,
+            "name": "Blossom Path",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 16,
+            "name": "Pastel Pink",
+            "category": "Color Mood"
+          },
+          {
+            "number": 49,
+            "name": "Champagne",
+            "category": "Color Mood"
+          },
+          {
+            "number": 71,
+            "name": "Cream",
+            "category": "Color Mood"
+          },
+          {
+            "number": 77,
+            "name": "Baby Blue",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 30,
+            "name": "Bamboo Forest",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 43,
+            "name": "Cherry Shrine",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 52,
+            "name": "Onsen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 61,
+            "name": "Kyoto",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 8,
+          "name": "Pink Sunset",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 11,
+          "name": "Falafel",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 14,
+          "name": "Bhel Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 16,
+          "name": "Pastel Pink",
+          "category": "Color Mood"
+        },
+        {
+          "number": 27,
+          "name": "Spring Breeze",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 28,
+          "name": "Dal Pakwan",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 30,
+          "name": "Bamboo Forest",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 43,
+          "name": "Cherry Shrine",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 49,
+          "name": "Champagne",
+          "category": "Color Mood"
+        },
+        {
+          "number": 52,
+          "name": "Onsen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 60,
+          "name": "Nachos",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 61,
+          "name": "Kyoto",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 65,
+          "name": "Japanese Fan",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 71,
+          "name": "Cream",
+          "category": "Color Mood"
+        },
+        {
+          "number": 77,
+          "name": "Baby Blue",
+          "category": "Color Mood"
+        },
+        {
+          "number": 79,
+          "name": "Blossom Path",
+          "category": "Sakura Vibes"
+        }
+      ]
+    },
+    {
+      "ticketId": 30,
+      "categories": {
+        "Food Lovers": [
+          {
+            "number": 51,
+            "name": "Pav Bhaji",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 63,
+            "name": "Dabeli",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 67,
+            "name": "Sev Puri",
+            "category": "Food Lovers"
+          },
+          {
+            "number": 80,
+            "name": "Kachori",
+            "category": "Food Lovers"
+          }
+        ],
+        "Sakura Vibes": [
+          {
+            "number": 3,
+            "name": "Silk Scarf",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 18,
+            "name": "Petal Shower",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 22,
+            "name": "Calligraphy Art",
+            "category": "Sakura Vibes"
+          },
+          {
+            "number": 24,
+            "name": "Paper Lantern",
+            "category": "Sakura Vibes"
+          }
+        ],
+        "Color Mood": [
+          {
+            "number": 13,
+            "name": "Rose Gold",
+            "category": "Color Mood"
+          },
+          {
+            "number": 29,
+            "name": "Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 64,
+            "name": "Coral Peach",
+            "category": "Color Mood"
+          },
+          {
+            "number": 71,
+            "name": "Cream",
+            "category": "Color Mood"
+          }
+        ],
+        "Japan Vibes": [
+          {
+            "number": 37,
+            "name": "Matcha",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 46,
+            "name": "Ramen",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 57,
+            "name": "Mount Fuji",
+            "category": "Japan Vibes"
+          },
+          {
+            "number": 69,
+            "name": "Torii Gate",
+            "category": "Japan Vibes"
+          }
+        ]
+      },
+      "entries": [
+        {
+          "number": 3,
+          "name": "Silk Scarf",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 13,
+          "name": "Rose Gold",
+          "category": "Color Mood"
+        },
+        {
+          "number": 18,
+          "name": "Petal Shower",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 22,
+          "name": "Calligraphy Art",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 24,
+          "name": "Paper Lantern",
+          "category": "Sakura Vibes"
+        },
+        {
+          "number": 29,
+          "name": "Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 37,
+          "name": "Matcha",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 46,
+          "name": "Ramen",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 51,
+          "name": "Pav Bhaji",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 57,
+          "name": "Mount Fuji",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 63,
+          "name": "Dabeli",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 64,
+          "name": "Coral Peach",
+          "category": "Color Mood"
+        },
+        {
+          "number": 67,
+          "name": "Sev Puri",
+          "category": "Food Lovers"
+        },
+        {
+          "number": 69,
+          "name": "Torii Gate",
+          "category": "Japan Vibes"
+        },
+        {
+          "number": 71,
+          "name": "Cream",
+          "category": "Color Mood"
+        },
+        {
+          "number": 80,
+          "name": "Kachori",
+          "category": "Food Lovers"
+        }
+      ]
+    }
   ],
   "numberDirectory": [
     {
